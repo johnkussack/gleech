@@ -1,0 +1,595 @@
+# depslib dependency file v1.0
+1359421570 source:/root/voxel/opengl3/main.cpp
+	<stdio.h>
+	<stdlib.h>
+	<GL/glew.h>
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<shader.h>
+
+1349333032 /usr/include/stdio.h
+	<features.h>
+	<stddef.h>
+	<bits/types.h>
+	<libio.h>
+	<stdarg.h>
+	<bits/stdio_lim.h>
+	<bits/sys_errlist.h>
+	<getopt.h>
+	<bits/stdio.h>
+	<bits/stdio2.h>
+	<bits/stdio-ldbl.h>
+
+1349333012 /usr/include/features.h
+	<stdc-predef.h>
+	<sys/cdefs.h>
+	<gnu/stubs.h>
+
+1349333012 /usr/include/stdc-predef.h
+
+1349333042 /usr/include/sys/cdefs.h
+	<features.h>
+	<bits/wordsize.h>
+
+1349333029 /usr/include/bits/wordsize.h
+
+1349333012 /usr/include/gnu/stubs.h
+	<gnu/stubs-32.h>
+	<gnu/stubs-64.h>
+	<gnu/stubs-x32.h>
+
+1349333080 /usr/include/gnu/stubs-64.h
+
+1349333039 /usr/include/bits/types.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/typesizes.h>
+
+1349333039 /usr/include/bits/typesizes.h
+
+1349333032 /usr/include/libio.h
+	<_G_config.h>
+	<stdarg.h>
+	<sys/cdefs.h>
+	<bits/stdio-lock.h>
+	<shlib-compat.h>
+	<bits/libio-ldbl.h>
+
+1349333032 /usr/include/_G_config.h
+	<bits/types.h>
+	<stddef.h>
+	<wchar.h>
+	<gconv.h>
+
+1349333035 /usr/include/wchar.h
+	<features.h>
+	<stdio.h>
+	<stdarg.h>
+	<bits/wchar.h>
+	<stddef.h>
+	<wctype.h>
+	<xlocale.h>
+	<xlocale.h>
+	<xlocale.h>
+	<wctype.h>
+	<bits/wchar2.h>
+	<bits/wchar-ldbl.h>
+
+1349333035 /usr/include/bits/wchar.h
+	<bits/wordsize.h>
+
+1349333044 /usr/include/wctype.h
+	<features.h>
+	<bits/types.h>
+	<wchar.h>
+	<endian.h>
+	<xlocale.h>
+
+1349333034 /usr/include/endian.h
+	<features.h>
+	<bits/endian.h>
+	<bits/byteswap.h>
+
+1349333034 /usr/include/bits/endian.h
+
+1349333034 /usr/include/bits/byteswap.h
+	<features.h>
+	<bits/wordsize.h>
+	<bits/byteswap-16.h>
+
+1349333034 /usr/include/bits/byteswap-16.h
+
+1349333014 /usr/include/xlocale.h
+
+1349333035 /usr/include/bits/wchar2.h
+
+1349333035 /usr/include/bits/wchar-ldbl.h
+
+1349333013 /usr/include/gconv.h
+	<features.h>
+	<wchar.h>
+	<stddef.h>
+
+1349333032 /usr/include/bits/stdio-lock.h
+	<bits/libc-lock.h>
+	<lowlevellock.h>
+
+1349333012 /usr/include/bits/libc-lock.h
+	<pthread.h>
+	<stddef.h>
+	"libc-lockP.h"
+
+1349333054 /usr/include/pthread.h
+	<features.h>
+	<endian.h>
+	<sched.h>
+	<time.h>
+	<bits/pthreadtypes.h>
+	<bits/setjmp.h>
+	<bits/wordsize.h>
+
+1349333039 /usr/include/sched.h
+	<features.h>
+	<bits/types.h>
+	<stddef.h>
+	<time.h>
+	<bits/sched.h>
+
+1349333036 /usr/include/time.h
+	<features.h>
+	<stddef.h>
+	<bits/time.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<bits/types.h>
+	<xlocale.h>
+
+1349333036 /usr/include/bits/time.h
+	<bits/types.h>
+	<bits/types.h>
+	<bits/timex.h>
+
+1349333036 /usr/include/bits/timex.h
+	<bits/types.h>
+
+1349333039 /usr/include/bits/sched.h
+
+1349333039 /usr/include/bits/pthreadtypes.h
+	<bits/wordsize.h>
+
+1349333027 /usr/include/bits/setjmp.h
+	<bits/wordsize.h>
+
+1349333032 /usr/include/bits/libio-ldbl.h
+
+1349333030 /usr/include/bits/stdio_lim.h
+
+1349333032 /usr/include/bits/sys_errlist.h
+
+1349333039 /usr/include/getopt.h
+	<ctype.h>
+
+1349333019 /usr/include/ctype.h
+	<features.h>
+	<bits/types.h>
+	<endian.h>
+	<xlocale.h>
+
+1349333032 /usr/include/bits/stdio.h
+
+1349333032 /usr/include/bits/stdio2.h
+
+1349333032 /usr/include/bits/stdio-ldbl.h
+
+1349333029 /usr/include/stdlib.h
+	<features.h>
+	<stddef.h>
+	<bits/waitflags.h>
+	<bits/waitstatus.h>
+	<xlocale.h>
+	<sys/types.h>
+	<alloca.h>
+	<bits/stdlib.h>
+	<bits/stdlib-ldbl.h>
+
+1349333039 /usr/include/bits/waitflags.h
+
+1349333039 /usr/include/bits/waitstatus.h
+	<endian.h>
+
+1349333039 /usr/include/sys/types.h
+	<features.h>
+	<bits/types.h>
+	<time.h>
+	<stddef.h>
+	<endian.h>
+	<sys/select.h>
+	<sys/sysmacros.h>
+	<bits/pthreadtypes.h>
+
+1349333042 /usr/include/sys/select.h
+	<features.h>
+	<bits/types.h>
+	<bits/select.h>
+	<bits/sigset.h>
+	<time.h>
+	<bits/time.h>
+	<bits/select2.h>
+
+1349333042 /usr/include/bits/select.h
+	<bits/wordsize.h>
+
+1349333027 /usr/include/bits/sigset.h
+
+1349333042 /usr/include/bits/select2.h
+
+1349333039 /usr/include/sys/sysmacros.h
+	<features.h>
+
+1349333029 /usr/include/alloca.h
+	<features.h>
+	<stddef.h>
+
+1349333029 /usr/include/bits/stdlib.h
+
+1349333029 /usr/include/bits/stdlib-ldbl.h
+
+1334777209 /usr/include/GL/glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1349333029 /usr/include/inttypes.h
+	<features.h>
+	<stdint.h>
+	<stddef.h>
+
+1349333029 /usr/include/stdint.h
+	<features.h>
+	<bits/wchar.h>
+	<bits/wordsize.h>
+
+1351205956 /usr/include/GL/glu.h
+	"glu_mangle.h"
+	<GL/gl.h>
+
+1351205956 /usr/include/GL/glu_mangle.h
+
+1356560264 /usr/include/GL/gl.h
+	"gl_mangle.h"
+	<stdlib.h>
+	<windows.h>
+	<GL/glext.h>
+
+1356560264 /usr/include/GL/gl_mangle.h
+
+1356560264 /usr/include/GL/glext.h
+	<windows.h>
+	<stddef.h>
+	<inttypes.h>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<stdint.h>
+	<inttypes.h>
+
+1344449642 /usr/include/GL/glfw.h
+	<OpenGL/gl3.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL3/gl3.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1354994602 /root/voxel/opengl3/include/glm/glm.hpp
+	"core/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cstdio>
+	"core/setup.hpp"
+	"./core/_detail.hpp"
+	"./core/_vectorize.hpp"
+	"./core/type.hpp"
+	"./core/func_trigonometric.hpp"
+	"./core/func_exponential.hpp"
+	"./core/func_common.hpp"
+	"./core/func_packing.hpp"
+	"./core/func_geometric.hpp"
+	"./core/func_matrix.hpp"
+	"./core/func_vector_relational.hpp"
+	"./core/func_integer.hpp"
+	"./core/func_noise.hpp"
+	"./core/_swizzle.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/_fixes.hpp
+	<cmath>
+
+1356183588 /root/voxel/opengl3/include/glm/core/setup.hpp
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+
+1354994602 /root/voxel/opengl3/include/glm/core/_detail.hpp
+	"setup.hpp"
+	<cassert>
+	<cstdint>
+
+1354994602 /root/voxel/opengl3/include/glm/core/_vectorize.hpp
+
+1354994602 /root/voxel/opengl3/include/glm/core/type.hpp
+	"type_half.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_gentype.hpp"
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat2x2.hpp"
+	"type_mat2x3.hpp"
+	"type_mat2x4.hpp"
+	"type_mat3x2.hpp"
+	"type_mat3x3.hpp"
+	"type_mat3x4.hpp"
+	"type_mat4x2.hpp"
+	"type_mat4x3.hpp"
+	"type_mat4x4.hpp"
+
+1356183588 /root/voxel/opengl3/include/glm/core/type_half.hpp
+	<cstdlib>
+	"type_half.inl"
+
+1356183588 /root/voxel/opengl3/include/glm/core/type_half.inl
+	"_detail.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_float.hpp
+	"type_half.hpp"
+	"setup.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_int.hpp
+	"setup.hpp"
+	"_detail.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_gentype.hpp
+	"type_size.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_size.hpp
+	<cstdlib>
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec1.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec1.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec.hpp
+	"type_gentype.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/_swizzle.hpp
+	"_swizzle_func.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/_swizzle_func.hpp
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec1.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec2.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec2.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec2.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec3.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec3.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec3.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec4.hpp
+	"type_vec.hpp"
+	"type_float.hpp"
+	"type_int.hpp"
+	"type_size.hpp"
+	"_swizzle.hpp"
+	"type_vec4.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_vec4.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x2.hpp
+	"type_mat.hpp"
+	"type_mat2x2.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat.hpp
+	"type_gentype.hpp"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x2.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x3.hpp
+	"type_mat.hpp"
+	"type_mat2x3.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x3.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x4.hpp
+	"type_mat.hpp"
+	"type_mat2x4.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat2x4.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x2.hpp
+	"type_mat.hpp"
+	"type_mat3x2.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x2.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x3.hpp
+	"type_mat.hpp"
+	"type_mat3x3.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x3.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x4.hpp
+	"type_mat.hpp"
+	"type_mat3x4.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat3x4.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x2.hpp
+	"type_mat.hpp"
+	"type_mat4x2.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x2.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x3.hpp
+	"type_mat.hpp"
+	"type_mat4x3.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x3.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x4.hpp
+	"type_mat.hpp"
+	"type_mat4x4.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/type_mat4x4.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_trigonometric.hpp
+	"func_trigonometric.inl"
+
+1356183588 /root/voxel/opengl3/include/glm/core/func_trigonometric.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_exponential.hpp
+	"func_exponential.inl"
+
+1356183588 /root/voxel/opengl3/include/glm/core/func_exponential.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_common.hpp
+	"_fixes.hpp"
+	"func_common.inl"
+
+1356183588 /root/voxel/opengl3/include/glm/core/func_common.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_packing.hpp
+	"func_packing.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_packing.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_geometric.hpp
+	"func_geometric.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_geometric.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_matrix.hpp
+	"func_matrix.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_matrix.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_vector_relational.hpp
+	"_detail.hpp"
+	"func_vector_relational.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_vector_relational.inl
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_integer.hpp
+	"func_integer.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_integer.inl
+	<intrin.h>
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_noise.hpp
+	"func_noise.inl"
+
+1354994602 /root/voxel/opengl3/include/glm/core/func_noise.inl
+
+1359404552 /root/voxel/opengl3/include/common/loadShader.hpp
+	<iostream>
+	<fstream>
+	<vector>
+	<math.h>
+
+1349333026 /usr/include/math.h
+	<features.h>
+	<bits/huge_val.h>
+	<bits/huge_valf.h>
+	<bits/huge_vall.h>
+	<bits/inf.h>
+	<bits/nan.h>
+	<bits/mathdef.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathcalls.h>
+	<bits/mathinline.h>
+	<bits/math-finite.h>
+
+1349333026 /usr/include/bits/huge_val.h
+	<endian.h>
+
+1349333026 /usr/include/bits/huge_valf.h
+
+1349333026 /usr/include/bits/huge_vall.h
+
+1349333026 /usr/include/bits/inf.h
+
+1349333026 /usr/include/bits/nan.h
+	<endian.h>
+
+1349333026 /usr/include/bits/mathdef.h
+
+1349333026 /usr/include/bits/mathcalls.h
+
+1349333026 /usr/include/bits/mathinline.h
+
+1349333026 /usr/include/bits/math-finite.h
+
+1356183588 /root/voxel/opengl3/include/glm/gtc/matrix_transform.hpp
+	"../glm.hpp"
+	"matrix_transform.inl"
+
+1355690654 /root/voxel/opengl3/include/glm/gtc/matrix_transform.inl
+
+1359415027 /root/voxel/opengl3/include/shader.h
+
+1359415343 source:/root/voxel/opengl3/shader.cpp
+	<GL/glew.h>
+	<GL/glfw.h>
+	<iostream>
+	<fstream>
+	<string.h>
+	<shader.h>
+
+1349333034 /usr/include/string.h
+	<features.h>
+	<stddef.h>
+	<xlocale.h>
+	<bits/string.h>
+	<bits/string2.h>
+	<bits/string3.h>
+
+1349333034 /usr/include/bits/string.h
+
+1349333034 /usr/include/bits/string2.h
+	<endian.h>
+	<bits/types.h>
+	<stdlib.h>
+
+1349333034 /usr/include/bits/string3.h
+

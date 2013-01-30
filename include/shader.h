@@ -1,3 +1,5 @@
+#ifndef __SHADER__H
+#define __SHADER__H
 
 /**
 	Shader is a class designed to allow us to load and use a GLSL shader program in
@@ -6,22 +8,27 @@
 	unbind the GLSL shader program as required.
 */
 class Shader {
-public:
-    Shader(); // Default constructor
-    Shader(const char *vsFile, const char *fsFile); // Constructor for creating a shader from two shader filenames
-    ~Shader(); // Deconstructor for cleaning up
 
-    void init(const char *vsFile, const char *fsFile); // Initialize our shader file if we have to
+    public:
+        Shader(); // Default constructor
+        Shader(const char *vsFile, const char *fsFile); // Constructor for creating a shader from two shader filenames
+        ~Shader(); // Deconstructor for cleaning up
 
-    void bind(); // Bind our GLSL shader program
-    void unbind(); // Unbind our GLSL shader program
+        void init(const char *vsFile, const char *fsFile); // Initialize our shader file if we have to
 
-    unsigned int id(); // Get the identifier for our program
+        void bind(); // Bind our GLSL shader program
+        void unbind(); // Unbind our GLSL shader program
 
-private:
-    unsigned int shader_id; // The shader program identifier
-    unsigned int shader_vp; // The vertex shader identifier
-    unsigned int shader_fp; // The fragment shader identifier
+        unsigned int id(); // Get the identifier for our program
 
-    bool inited; // Whether or not we have initialized the shader
+    private:
+        unsigned int shader_id; // The shader program identifier
+        unsigned int shader_vp; // The vertex shader identifier
+        unsigned int shader_fp; // The fragment shader identifier
+
+        bool inited; // Whether or not we have initialized the shader
+
 };
+
+
+#endif

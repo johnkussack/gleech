@@ -1,7 +1,5 @@
 #version 150 core
 
-
-// TUT NEW
 in vec3 vertexPosition_modelspace;
 uniform mat4 MVP;
 out vec3 fragmentColor;

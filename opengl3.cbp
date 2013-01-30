@@ -41,9 +41,24 @@
 			<Add library="GL" />
 			<Add directory="/usr/lib" />
 		</Linker>
+		<Unit filename="include/Scene.h" />
+		<Unit filename="include/TextureManager.h" />
+		<Unit filename="include/camera/CameraControls.h" />
+		<Unit filename="include/glincludes.h" />
+		<Unit filename="include/primitives/Cube.h" />
+		<Unit filename="include/primitives/Plane.h" />
+		<Unit filename="include/primitives/Primitive.h" />
+		<Unit filename="include/primitives/Triangle.h" />
 		<Unit filename="include/shader.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="shader.cpp" />
+		<Unit filename="src/CameraControls.cpp" />
+		<Unit filename="src/Cube.cpp" />
+		<Unit filename="src/Plane.cpp" />
+		<Unit filename="src/Primitive.cpp" />
+		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
+		<Unit filename="src/Triangle.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

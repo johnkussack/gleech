@@ -1,6 +1,4 @@
-#include <GL/glew.h>
-#include <GL/glfw.h>
-
+#include <glincludes.h>
 #include <iostream>
 #include <fstream>
 #include <string.h>

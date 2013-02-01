@@ -9,7 +9,7 @@ Loader::Loader(Scene* _scene){
 
     textMan = new TextureManager(shaderTextures);
     //textMan->loadTexture2D("/root/voxel/opengl3/uvtemplate.tga");
-    textMan->loadTexture2D("/root/voxel/opengl3/crate.jpg");
+    textMan->loadTexture2D("/root/voxel/opengl3/texture.png");
 
 
     /**** CREATE PRIMITIVES TO USE ****/
@@ -76,27 +76,35 @@ Loader::Loader(Scene* _scene){
     /**** TEST STUFF ADDING HERE ****/
 
     SceneItem* testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[0]); // Triangle :P
-        //testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-        printf("Checking scene item: %d offset %dvertices \n", testItem->getOffset(),testItem->getVerticesCount());
-    //delete testItem;
+        testItem->SetPrimitive(primitiveStore[2]); // Triangle :P
+        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
+        testItem->SetTranslation(0.0,0.0,0.0);
+        //testItem->SetScale(2,2,2);
+
     _scene->pushItem(testItem);
 
 
     testItem = new SceneItem();
         testItem->SetPrimitive(primitiveStore[1]); //square
         //testItem->SetTranslation(2.0,0.0,0.0);
-        //testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-    //delete testItem;
+        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
+        testItem->SetTranslation(0.0,0.0,0.0);
     _scene->pushItem(testItem);
 
 
-    testItem = new SceneItem();
+    /*testItem = new SceneItem();
         testItem->SetPrimitive(primitiveStore[2]); //cube
         testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
         //testItem->SetTranslation(4.0,0.0,0.0);
 
-    _scene->pushItem(testItem);
+    _scene->pushItem(testItem);*/
+
+    /*testItem = new SceneItem();
+        testItem->SetPrimitive(primitiveStore[2]); //cube
+        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
+        testItem->SetTranslation(-4.0,0.0,4.0);
+
+    _scene->pushItem(testItem);*/
 }
 
 Loader::~Loader(){

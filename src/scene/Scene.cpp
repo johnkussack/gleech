@@ -118,17 +118,18 @@ void Scene::render(){
 
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
-
     /**** Process Keyboard and mouse inputs ****/
-    glm::mat4 MVP = getMatrixFromInputs();
+    glm::mat4 M;glm::mat4 V;glm::mat4 P;
+    glm::mat4 MVP;
+    GLuint MatrixID;
+
+    processCamInputs(&M,&V,&P);// getMatrixFromInputs();
 
     /**** Render SOLID ****/
     shader->bind(); // Bind our shader
 
-        GLuint MatrixID = glGetUniformLocation(shader->id(), "MVP");
-        glUseProgram(shader->id());
 
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+        glUseProgram(shader->id());
 
         glEnableVertexAttribArray(0);
 
@@ -141,6 +142,21 @@ void Scene::render(){
 
 		for(unsigned int i=0;i<items.size();i++){
 		    SceneItem* t = items[i];
+
+
+
+            glm::mat4 Q = glm::scale(
+                M,
+                glm::vec3(4)
+            );
+
+            //M = glm::mat4(1.0f) * myScalingMatrix;
+		    //M = glm::translate(M,glm::vec3(t->getTranslation(0),t->getTranslation(1),t->getTranslation(2)));
+		    MVP = P*V*M;
+		    MatrixID = glGetUniformLocation(shader->id(), "MVP");
+
+            glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
             glDrawArrays(GL_TRIANGLES,t->getOffset(), t->getVerticesCount());
 		}
 
@@ -153,17 +169,12 @@ void Scene::render(){
 
     /**** Render TEXTURED ****/
 
-    MVP = getMatrixFromInputs();
+    //MVP = getMatrixFromInputs();
 
     shaderTextures->bind(); // Bind our shader
 
-         MatrixID = glGetUniformLocation(shaderTextures->id(), "MVP");
+
         glUseProgram(shaderTextures->id());
-
-
-
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-
 
         glEnableVertexAttribArray(0);
 
@@ -176,6 +187,14 @@ void Scene::render(){
 
 		for(unsigned int i=0;i<itemsTextured.size();i++){
 		    SceneItem* t = itemsTextured[i];
+
+
+            glm::mat4 Q = glm::translate(M,glm::vec3(t->getTranslation(0),t->getTranslation(1),t->getTranslation(2)));
+		    MVP = P*V*Q;
+		    MatrixID = glGetUniformLocation(shaderTextures->id(), "MVP");
+
+            glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
             glDrawArrays(GL_TRIANGLES, t->getOffset(), t->getVerticesCount());
 		}
 

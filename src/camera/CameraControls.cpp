@@ -9,18 +9,18 @@ using namespace glm;
 #include <camera/CameraControls.h>
 
 // Initial horizontal angle : toward +Z
-float horizontalAngle = 0.0f;
+float horizontalAngle = 3.14f;
 // Initial vertical angle : none
 float verticalAngle = 0.0f;
 // Initial position : since we look towards +Z, we have to move backwards ( in the -Z direction ) in order to see the origin
-glm::vec3 position = glm::vec3( 0, 0, -5 );
+glm::vec3 position = glm::vec3( 0, 0, 5 );
 // Initial Field of View
 float initialFoV = 45.0f;
 
 float speed = 3.0f; // 3 units / second
 float mouseSpeed = 0.5f;
 
-glm::mat4 getMatrixFromInputs(){
+void processCamInputs(glm::mat4* M,glm::mat4* V,glm::mat4*P){
 
 	// glfwGetTime is called only once, the first time this function is called
 	static double lastTime = glfwGetTime();
@@ -36,10 +36,12 @@ glm::mat4 getMatrixFromInputs(){
 	// Reset mouse position for next frame
 	glfwSetMousePos(1024/2, 738/2);
 
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_2) == GLFW_PRESS){
+
 	// Compute new orientation
 	horizontalAngle += mouseSpeed * deltaTime * float(1024/2 - xpos );
 	verticalAngle   += mouseSpeed * deltaTime * float( 738/2 - ypos );
-
+    }
 	// Up vector
 	glm::vec3 up(0,1,0);
 
@@ -74,20 +76,20 @@ glm::mat4 getMatrixFromInputs(){
 	float FoV = initialFoV - 5 * glfwGetMouseWheel();
 
 	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-    glm::mat4 Projection = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
+    *P = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
 	// Camera matrix
-	glm::mat4 View       = glm::lookAt(
+	*V       = glm::lookAt(
 								position,           // Camera is here
 								position+direction, // and looks here : at the same position, plus "direction"
 								up                  // Head is up (set to 0,-1,0 to look upside-down)
 						   );
 	// Model matrix : an identity matrix (model will be at the origin)
-	glm::mat4 Model      = glm::mat4(1.0f);
+	*M      = glm::mat4(1.0f);
 	// Our ModelViewProjection : multiplication of our 3 matrices
-	glm::mat4 MVP        = Projection * View * Model; // Remember, matrix multiplication is the other way around
+	//glm::mat4 MVP        = Projection * View * Model; // Remember, matrix multiplication is the other way around
 
 	// For the next frame, the "last time" will be "now"
 	lastTime = currentTime;
 
-	return MVP;
+	//return MVP;
 }

@@ -21,10 +21,12 @@ class SceneItem
         virtual ~SceneItem();
 
         GLfloat getTranslation(int index){ return translation[index]; }
+        GLfloat getScale(int index){ return translation[index]; }
         int getOffset() {return prim->sceneOffset; }
         int getVerticesCount(){return prim->getHumanVertexCount();}
         int getTexture() {return texture;}
         int getTextureId() {return textureId;}
+
 
         void SetPrimitive(Primitive* _prim);
         void SetScale(float a,float b, float c);

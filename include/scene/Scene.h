@@ -15,9 +15,9 @@ class Scene{
 
     private:
 
-
         std::vector<SceneItem*> items;
         std::vector<SceneItem*> itemsTextured;
+        //std::vector<SceneModel*> models;
 
         GLuint vaoSolid;
         GLuint vboSolid[3];
@@ -27,6 +27,8 @@ class Scene{
 
         Shader* shader;
         Shader* shaderTextures;
+
+
 
 
     public:

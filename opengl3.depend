@@ -637,7 +637,7 @@
 1359656965 /root/voxel/opengl3/include/primitives/Cube.h
 	<primitives/Primitive.h>
 
-1359678961 /root/voxel/opengl3/include/camera/CameraControls.h
+1359683108 /root/voxel/opengl3/include/camera/CameraControls.h
 
 1359488464 source:/root/voxel/opengl3/src/CameraControls.cpp
 	<camera/CameraControls.h>
@@ -666,7 +666,7 @@
 	<wchar.h>
 	<inttypes.h>
 
-1359680303 source:/root/voxel/opengl3/src/camera/CameraControls.cpp
+1359684977 source:/root/voxel/opengl3/src/camera/CameraControls.cpp
 	<GL/glfw.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
@@ -684,10 +684,10 @@
 1359669302 source:/root/voxel/opengl3/src/primitives/Triangle.cpp
 	<primitives/Triangle.h>
 
-1359680246 source:/root/voxel/opengl3/src/scene/Scene.cpp
+1359718039 source:/root/voxel/opengl3/src/scene/Scene.cpp
 	<scene/Scene.h>
 
-1359678917 /root/voxel/opengl3/include/scene/Scene.h
+1359720245 /root/voxel/opengl3/include/scene/Scene.h
 	<glincludes.h>
 	<vector>
 	<camera/CameraControls.h>
@@ -695,14 +695,14 @@
 	<TextureManager.h>
 	<scene/SceneItem.h>
 
-1359668262 source:/root/voxel/opengl3/src/scene/SceneItem.cpp
+1359685936 source:/root/voxel/opengl3/src/scene/SceneItem.cpp
 	<scene/SceneItem.h>
 
-1359668236 /root/voxel/opengl3/include/scene/SceneItem.h
+1359685862 /root/voxel/opengl3/include/scene/SceneItem.h
 	<glincludes.h>
 	<primitives/Primitive.h>
 
-1359680463 source:/root/voxel/opengl3/src/Loader.cpp
+1359718124 source:/root/voxel/opengl3/src/Loader.cpp
 	<Loader.h>
 
 1359665887 /root/voxel/opengl3/include/Loader.h

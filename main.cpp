@@ -5,15 +5,13 @@
 // OpenGL 3.0 libraries
 #include <glincludes.h>
 
-#include <TextureManager.h>
-
-#include <camera/CameraControls.h>
-#include <Scene.h>
+#include <scene/Scene.h>
+#include <Loader.h>
 
 using namespace glm;
 
 Scene* scene;
-
+Loader* loader;
 
 int main(){
 
@@ -49,20 +47,22 @@ int main(){
     glfwEnable( GLFW_STICKY_KEYS );
 
     scene = new Scene();
-    scene->Setup();
+    loader = new Loader(scene);
 
     // Enable depth test
     glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
+    //glEnable(GL_CULL_FACE);
 
     // Accept fragment if it closer to the camera than the former one
     glDepthFunc(GL_LESS);
 
     do{
-        glViewport(0, 0, 1024, 768); // Set the viewport size to fill the window
+        //glViewport(0, 0, 1024, 768); // Set the viewport size to fill the window
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT); // Clear required buffers
 
-        scene->Render();
+
+
+        scene->render();
 
         // Swap buffers
         glfwSwapBuffers();
@@ -71,6 +71,7 @@ int main(){
 
 
     delete scene;
+    delete loader;
 
     glfwTerminate(); // End of GLFW
 

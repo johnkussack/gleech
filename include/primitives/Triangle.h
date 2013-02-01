@@ -3,16 +3,16 @@
 
 #include <primitives/Primitive.h>
 
-class Triangle: public Primitive
-{
+class Triangle :public Primitive{
 
-public:
-    Triangle();
-    virtual ~Triangle();
+    protected:
 
-    void Create(Shader* _shader);
-    void Render(GLuint MatrixID,GLfloat* MVP);
+    public:
+        Triangle();
+        virtual ~Triangle();
+
 
 };
+
 
 #endif // TRIANGLE_H

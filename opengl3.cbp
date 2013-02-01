@@ -39,9 +39,10 @@
 			<Add library="glfw" />
 			<Add library="GLEW" />
 			<Add library="GL" />
+			<Add library="freeimage" />
 			<Add directory="/usr/lib" />
 		</Linker>
-		<Unit filename="include/Scene.h" />
+		<Unit filename="include/Loader.h" />
 		<Unit filename="include/TextureManager.h" />
 		<Unit filename="include/camera/CameraControls.h" />
 		<Unit filename="include/glincludes.h" />
@@ -49,16 +50,20 @@
 		<Unit filename="include/primitives/Plane.h" />
 		<Unit filename="include/primitives/Primitive.h" />
 		<Unit filename="include/primitives/Triangle.h" />
+		<Unit filename="include/scene/Scene.h" />
+		<Unit filename="include/scene/SceneItem.h" />
 		<Unit filename="include/shader.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="shader.cpp" />
-		<Unit filename="src/CameraControls.cpp" />
-		<Unit filename="src/Cube.cpp" />
-		<Unit filename="src/Plane.cpp" />
-		<Unit filename="src/Primitive.cpp" />
-		<Unit filename="src/Scene.cpp" />
+		<Unit filename="src/Loader.cpp" />
 		<Unit filename="src/TextureManager.cpp" />
-		<Unit filename="src/Triangle.cpp" />
+		<Unit filename="src/camera/CameraControls.cpp" />
+		<Unit filename="src/primitives/Cube.cpp" />
+		<Unit filename="src/primitives/Plane.cpp" />
+		<Unit filename="src/primitives/Primitive.cpp" />
+		<Unit filename="src/primitives/Triangle.cpp" />
+		<Unit filename="src/scene/Scene.cpp" />
+		<Unit filename="src/scene/SceneItem.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

@@ -1,11 +1,10 @@
 # depslib dependency file v1.0
-1359507096 source:/root/voxel/opengl3/main.cpp
+1359679521 source:/root/voxel/opengl3/main.cpp
 	<stdio.h>
 	<stdlib.h>
 	<glincludes.h>
-	<TextureManager.h>
-	<camera/CameraControls.h>
-	<Scene.h>
+	<scene/Scene.h>
+	<Loader.h>
 
 1349333032 /usr/include/stdio.h
 	<features.h>
@@ -591,14 +590,15 @@
 
 1349333034 /usr/include/bits/string3.h
 
-1359462154 /root/voxel/opengl3/include/TextureManager.h
+1359544884 /root/voxel/opengl3/include/TextureManager.h
 	<glincludes.h>
 	<iostream>
 	<vector>
 	<shader.h>
 
-1359462351 source:/root/voxel/opengl3/src/TextureManager.cpp
+1359666947 source:/root/voxel/opengl3/src/TextureManager.cpp
 	"TextureManager.h"
+	<FreeImage.h>
 
 1359461742 /root/voxel/opengl3/include/glincludes.h
 	<GL/glew.h>
@@ -606,15 +606,15 @@
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 
-1359462720 source:/root/voxel/opengl3/src/Primitive.cpp
-	"Primitive.h"
+1359657325 source:/root/voxel/opengl3/src/Primitive.cpp
+	<primitives/Primitive.h>
 
 1359472645 /root/voxel/opengl3/include/Primitive.h
 	<glincludes.h>
 	<shader.h>
 
-1359476036 source:/root/voxel/opengl3/src/Triangle.cpp
-	"Triangle.h"
+1359659747 source:/root/voxel/opengl3/src/Triangle.cpp
+	<primitives/Triangle.h>
 
 1359472632 /root/voxel/opengl3/include/Triangle.h
 	<Primitive.h>
@@ -622,42 +622,98 @@
 1359476790 /root/voxel/opengl3/include/Cube.h
 	<Primitive.h>
 
-1359502803 source:/root/voxel/opengl3/src/Cube.cpp
+1359657146 source:/root/voxel/opengl3/src/Cube.cpp
 	<primitives/Cube.h>
 
-1359477607 /root/voxel/opengl3/include/primitives/Triangle.h
+1359653885 /root/voxel/opengl3/include/primitives/Triangle.h
 	<primitives/Primitive.h>
 
-1359501661 /root/voxel/opengl3/include/primitives/Primitive.h
+1359668059 /root/voxel/opengl3/include/primitives/Primitive.h
 	<glincludes.h>
 	<stdio.h>
 	<string.h>
+	<vector>
 
-1359501712 /root/voxel/opengl3/include/primitives/Cube.h
+1359656965 /root/voxel/opengl3/include/primitives/Cube.h
 	<primitives/Primitive.h>
 
-1359479055 /root/voxel/opengl3/include/camera/CameraControls.h
-	<glincludes.h>
+1359678961 /root/voxel/opengl3/include/camera/CameraControls.h
 
 1359488464 source:/root/voxel/opengl3/src/CameraControls.cpp
 	<camera/CameraControls.h>
 
-1359511744 source:/root/voxel/opengl3/src/Scene.cpp
+1359660601 source:/root/voxel/opengl3/src/Scene.cpp
 	"Scene.h"
-	<primitives/Cube.h>
-	<primitives/Plane.h>
 
-1359507024 /root/voxel/opengl3/include/Scene.h
+1359659858 /root/voxel/opengl3/include/Scene.h
 	<glincludes.h>
 	<vector>
 	<primitives/Primitive.h>
 	<camera/CameraControls.h>
 	<shader.h>
 	<TextureManager.h>
-
-1359511703 source:/root/voxel/opengl3/src/Plane.cpp
+	<primitives/Cube.h>
+	<primitives/Triangle.h>
 	<primitives/Plane.h>
 
-1359511730 /root/voxel/opengl3/include/primitives/Plane.h
+1359660547 source:/root/voxel/opengl3/src/Plane.cpp
+	<primitives/Plane.h>
+
+1359653687 /root/voxel/opengl3/include/primitives/Plane.h
 	<primitives/Primitive.h>
+
+1332079137 /usr/include/FreeImage.h
+	<wchar.h>
+	<inttypes.h>
+
+1359680303 source:/root/voxel/opengl3/src/camera/CameraControls.cpp
+	<GL/glfw.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<camera/CameraControls.h>
+
+1359668069 source:/root/voxel/opengl3/src/primitives/Cube.cpp
+	<primitives/Cube.h>
+
+1359669313 source:/root/voxel/opengl3/src/primitives/Plane.cpp
+	<primitives/Plane.h>
+
+1359657325 source:/root/voxel/opengl3/src/primitives/Primitive.cpp
+	<primitives/Primitive.h>
+
+1359669302 source:/root/voxel/opengl3/src/primitives/Triangle.cpp
+	<primitives/Triangle.h>
+
+1359680246 source:/root/voxel/opengl3/src/scene/Scene.cpp
+	<scene/Scene.h>
+
+1359678917 /root/voxel/opengl3/include/scene/Scene.h
+	<glincludes.h>
+	<vector>
+	<camera/CameraControls.h>
+	<shader.h>
+	<TextureManager.h>
+	<scene/SceneItem.h>
+
+1359668262 source:/root/voxel/opengl3/src/scene/SceneItem.cpp
+	<scene/SceneItem.h>
+
+1359668236 /root/voxel/opengl3/include/scene/SceneItem.h
+	<glincludes.h>
+	<primitives/Primitive.h>
+
+1359680463 source:/root/voxel/opengl3/src/Loader.cpp
+	<Loader.h>
+
+1359665887 /root/voxel/opengl3/include/Loader.h
+	<glincludes.h>
+	<vector>
+	<TextureManager.h>
+	<scene/Scene.h>
+	<scene/SceneItem.h>
+	<primitives/Primitive.h>
+	<primitives/Triangle.h>
+	<primitives/Plane.h>
+	<primitives/Cube.h>
+	<shader.h>
 

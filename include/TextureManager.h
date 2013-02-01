@@ -13,6 +13,7 @@ class TextureManager
         TextureManager(Shader* _shader);
         virtual ~TextureManager();
 
+        void loadTexture2D(const char* imagepath);
         void loadTGATexture(const char * imagepath);
         GLuint getTexture(int _index);
         GLuint getTextureId(int _index);

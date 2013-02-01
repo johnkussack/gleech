@@ -6,15 +6,10 @@
 class Plane : public Primitive{
 
     private:
-        GLfloat vertices[9];
-        GLfloat colors[27];
-        GLfloat textureUv[12];
-
 
     public:
         Plane();
         virtual ~Plane();
-
 
 };
 

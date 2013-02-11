@@ -8,8 +8,12 @@ Loader::Loader(Scene* _scene){
     shaderTextures = new Shader("/root/voxel/opengl3/textureshader.vert", "/root/voxel/opengl3/textureshader.frag");
 
     textMan = new TextureManager(shaderTextures);
-    //textMan->loadTexture2D("/root/voxel/opengl3/uvtemplate.tga");
-    textMan->loadTexture2D("/root/voxel/opengl3/texture.png");
+    textMan->loadTexture2D("/root/voxel/opengl3/texture.jpg",true);
+    textMan->loadTexture2D("/root/voxel/opengl3/building.jpg",false);
+    textMan->loadTexture2D("/root/voxel/opengl3/skybox.jpg", true);
+
+    soundM = new SoundManager();
+    soundM->open("/root/voxel/opengl3/alternative.ogg");
 
 
     /**** CREATE PRIMITIVES TO USE ****/
@@ -17,6 +21,8 @@ Loader::Loader(Scene* _scene){
     primitiveStore.push_back(new Triangle());
     primitiveStore.push_back(new Plane());
     primitiveStore.push_back(new Cube());
+    primitiveStore.push_back(new Skybox());
+
 
 
     /**** JOIN PRIMITIVES VALUES ****/
@@ -39,10 +45,6 @@ Loader::Loader(Scene* _scene){
 
     }
 
-    printf("Checking v: %d\n", vertices.size());
-    printf("Checking c: %d\n", colors.size());
-    printf("Checking t: %d\n", texturesUV.size());
-    printf("Checking n: %d\n", normals.size());
 
     /**** CREATE VAO & VBO ****/
 
@@ -70,41 +72,53 @@ Loader::Loader(Scene* _scene){
 
         /**** Pass info to the scene & setup ****/
 
-    _scene->setup(sceneVao,sceneVbo, sceneVaoTextured, sceneVboTextured, shader, shaderTextures);
+    _scene->setup(sceneVao,sceneVbo, sceneVaoTextured, sceneVboTextured, shader, shaderTextures,soundM);
 
 
     /**** TEST STUFF ADDING HERE ****/
 
     SceneItem* testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); // Triangle :P
+        testItem->SetPrimitive(primitiveStore[1]); //plane
+        testItem->SetScale(90,1,90);
+        testItem->SetTranslation(0,0.5,0);
         testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-        testItem->SetTranslation(0.0,0.0,0.0);
-        //testItem->SetScale(2,2,2);
 
     _scene->pushItem(testItem);
+
+
+    //BUILDINGS
+    testItem = new SceneItem();
+        testItem->SetPrimitive(primitiveStore[2]); // cube
+        testItem->SetTranslation(-1.0f,0.5f,0);
+        testItem->SetScale(10,15,10);
+        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
+    _scene->pushItem(testItem);
+
+    testItem = new SceneItem();
+        testItem->SetPrimitive(primitiveStore[2]); // cube
+        testItem->SetTranslation(-1.0f,0.5f,-3.0);
+        testItem->SetScale(10,15,10);
+        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
+    _scene->pushItem(testItem);
+
+    testItem = new SceneItem();
+        testItem->SetPrimitive(primitiveStore[2]); // cube
+        testItem->SetTranslation(1.0f,0.5f,-3.0);
+        testItem->SetScale(10,15,10);
+        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
+    _scene->pushItem(testItem);
+
+    //SKYBOX
 
 
     testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[1]); //square
-        //testItem->SetTranslation(2.0,0.0,0.0);
-        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-        testItem->SetTranslation(0.0,0.0,0.0);
+        testItem->SetPrimitive(primitiveStore[3]); // skybox
+        testItem->SetTexture(textMan->getTexture(2),textMan->getTextureId(2));
+        testItem->SetScale(100,100,100);
     _scene->pushItem(testItem);
 
 
-    /*testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); //cube
-        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-        //testItem->SetTranslation(4.0,0.0,0.0);
 
-    _scene->pushItem(testItem);*/
-
-    /*testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); //cube
-        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-        testItem->SetTranslation(-4.0,0.0,4.0);
-
-    _scene->pushItem(testItem);*/
 }
 
 Loader::~Loader(){
@@ -121,6 +135,9 @@ Loader::~Loader(){
     glDeleteVertexArrays(1, &sceneVao);
     glDeleteVertexArrays(1, &sceneVaoTextured);
 
+
+
+    delete soundM;
     delete textMan;
     delete shader;
     delete shaderTextures;

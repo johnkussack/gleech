@@ -1,9 +1,8 @@
 #include <scene/Scene.h>
 
 
-Scene::Scene(){
-
-
+Scene::Scene(Camera* _cam){
+    cam = _cam;
 }
 
 Scene::~Scene(){
@@ -20,7 +19,7 @@ Scene::~Scene(){
 }
 
 
-void Scene::setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT){
+void Scene::setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT,SoundManager* _sman){
     vaoSolid = _vaoSolid;
     vboSolid[0] = _vboSolid[0];
     vboSolid[1] = _vboSolid[1];
@@ -33,6 +32,8 @@ void Scene::setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuin
 
     shader = _shader;
     shaderTextures = _shaderT;
+
+    soundMan = _sman;
 }
 
 void Scene::pushItem(SceneItem* _newItem){
@@ -116,18 +117,15 @@ void Scene::renderTest(){
 void Scene::render(){
 
 
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-
     /**** Process Keyboard and mouse inputs ****/
-    glm::mat4 M;glm::mat4 V;glm::mat4 P;
+    glm::mat4 V;glm::mat4 P;
     glm::mat4 MVP;
     GLuint MatrixID;
 
-    processCamInputs(&M,&V,&P);// getMatrixFromInputs();
+    cam->GetVP(&V,&P);
 
     /**** Render SOLID ****/
     shader->bind(); // Bind our shader
-
 
         glUseProgram(shader->id());
 
@@ -143,16 +141,7 @@ void Scene::render(){
 		for(unsigned int i=0;i<items.size();i++){
 		    SceneItem* t = items[i];
 
-
-
-            glm::mat4 Q = glm::scale(
-                M,
-                glm::vec3(4)
-            );
-
-            //M = glm::mat4(1.0f) * myScalingMatrix;
-		    //M = glm::translate(M,glm::vec3(t->getTranslation(0),t->getTranslation(1),t->getTranslation(2)));
-		    MVP = P*V*M;
+            MVP = P*V*t->GetModelMatrix();
 		    MatrixID = glGetUniformLocation(shader->id(), "MVP");
 
             glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -169,40 +158,56 @@ void Scene::render(){
 
     /**** Render TEXTURED ****/
 
-    //MVP = getMatrixFromInputs();
-
     shaderTextures->bind(); // Bind our shader
 
 
         glUseProgram(shaderTextures->id());
 
-        glEnableVertexAttribArray(0);
 
+        glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vboText[0]);
 		glVertexAttribPointer(	0,	3,	GL_FLOAT,GL_FALSE,	0,	(void*)0 );
+
 
 		glEnableVertexAttribArray(1);
 		glBindBuffer(GL_ARRAY_BUFFER, vboText[1]);
 		glVertexAttribPointer(	1,	2,	GL_FLOAT,GL_FALSE,	0,	(void*)0 );
 
+
 		for(unsigned int i=0;i<itemsTextured.size();i++){
 		    SceneItem* t = itemsTextured[i];
 
 
-            glm::mat4 Q = glm::translate(M,glm::vec3(t->getTranslation(0),t->getTranslation(1),t->getTranslation(2)));
-		    MVP = P*V*Q;
+		    MVP = P*V*t->GetModelMatrix();
 		    MatrixID = glGetUniformLocation(shaderTextures->id(), "MVP");
 
             glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
+            ////////////////
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, t->getTexture());
+            glUniform1i(t->getTextureId(), 0);
+
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+            ////////////////
+
+
             glDrawArrays(GL_TRIANGLES, t->getOffset(), t->getVerticesCount());
 		}
+
 
 
         glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
     shaderTextures->unbind();
+
+
+    if (!soundMan->playing()){
+        soundMan->play();
+
+    }
 
 
 

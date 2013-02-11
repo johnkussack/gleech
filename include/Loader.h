@@ -5,6 +5,7 @@
 #include <vector>
 
 #include <TextureManager.h>
+#include <sound/soundManager.h>
 
 #include <scene/Scene.h>
 #include <scene/SceneItem.h>
@@ -13,6 +14,8 @@
 #include <primitives/Triangle.h>
 #include <primitives/Plane.h>
 #include <primitives/Cube.h>
+#include <primitives/Skybox.h>
+#include <primitives/Mesh.h>
 
 #include <shader.h>
 
@@ -28,6 +31,8 @@ class Loader
         GLuint sceneVboTextured[3]; // Vertices, UV, normals
 
         TextureManager* textMan;
+
+        SoundManager* soundM;
 
         Shader* shader;
         Shader* shaderTextures;

@@ -7,14 +7,21 @@
 #include <vector>
 #include <shader.h>
 
+class Texture{
+
+    public:
+        GLuint text;
+        GLuint textId;
+
+};
+
 class TextureManager
 {
     public:
         TextureManager(Shader* _shader);
         virtual ~TextureManager();
 
-        void loadTexture2D(const char* imagepath);
-        void loadTGATexture(const char * imagepath);
+        void loadTexture2D(const char* imagepath, bool skybox);
         GLuint getTexture(int _index);
         GLuint getTextureId(int _index);
 
@@ -22,8 +29,7 @@ class TextureManager
 
     private:
         Shader* textureShader;
-        std::vector<GLuint> Textures;
-        std::vector<GLuint> TexturesID;
+        std::vector<Texture*> Textures;
 };
 
 #endif // TEXTUREMANAGER_H

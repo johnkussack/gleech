@@ -1,14 +1,18 @@
 #ifndef SCENE_H
 #define SCENE_H
 
-#include <glincludes.h>
 #include <vector>
-
-#include <camera/CameraControls.h>
-#include <shader.h>
-#include <TextureManager.h>
+#include <glincludes.h>
 
 #include <scene/SceneItem.h>
+
+#include <shader.h>
+#include <sound/soundManager.h>
+
+#include <camera/Camera.h>
+#include <camera/CameraControls.h>
+
+#include <AntTweakBar.h>
 
 
 class Scene{
@@ -28,14 +32,15 @@ class Scene{
         Shader* shader;
         Shader* shaderTextures;
 
-
+        Camera* cam;
+        SoundManager* soundMan;
 
 
     public:
-        Scene();
+        Scene(Camera* _cam);
         virtual ~Scene();
 
-        void setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT);
+        void setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT,SoundManager* sman);
         void render();
         void renderTest();
 

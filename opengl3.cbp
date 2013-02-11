@@ -40,30 +40,44 @@
 			<Add library="GLEW" />
 			<Add library="GL" />
 			<Add library="freeimage" />
+			<Add library="AntTweakBar" />
+			<Add library="GLU" />
+			<Add library="SDL" />
+			<Add library="SDL_mixer" />
 			<Add directory="/usr/lib" />
 		</Linker>
 		<Unit filename="include/Loader.h" />
 		<Unit filename="include/TextureManager.h" />
+		<Unit filename="include/camera/Camera.h" />
 		<Unit filename="include/camera/CameraControls.h" />
+		<Unit filename="include/controls/Controls.h" />
 		<Unit filename="include/glincludes.h" />
 		<Unit filename="include/primitives/Cube.h" />
+		<Unit filename="include/primitives/Mesh.h" />
 		<Unit filename="include/primitives/Plane.h" />
 		<Unit filename="include/primitives/Primitive.h" />
+		<Unit filename="include/primitives/Skybox.h" />
 		<Unit filename="include/primitives/Triangle.h" />
 		<Unit filename="include/scene/Scene.h" />
 		<Unit filename="include/scene/SceneItem.h" />
 		<Unit filename="include/shader.h" />
+		<Unit filename="include/sound/soundManager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="shader.cpp" />
 		<Unit filename="src/Loader.cpp" />
 		<Unit filename="src/TextureManager.cpp" />
+		<Unit filename="src/camera/Camera.cpp" />
 		<Unit filename="src/camera/CameraControls.cpp" />
+		<Unit filename="src/controls/Controls.cpp" />
 		<Unit filename="src/primitives/Cube.cpp" />
+		<Unit filename="src/primitives/Mesh.cpp" />
 		<Unit filename="src/primitives/Plane.cpp" />
 		<Unit filename="src/primitives/Primitive.cpp" />
+		<Unit filename="src/primitives/Skybox.cpp" />
 		<Unit filename="src/primitives/Triangle.cpp" />
 		<Unit filename="src/scene/Scene.cpp" />
 		<Unit filename="src/scene/SceneItem.cpp" />
+		<Unit filename="src/sound/soundManager.cpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

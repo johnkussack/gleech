@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="include/Loader.h" open="0" top="0" tabpos="6">
+		<Cursor position="317" topLine="0" />
+	</File>
 	<File name="include/TextureManager.h" open="0" top="0" tabpos="0">
 		<Cursor position="539" topLine="0" />
 	</File>
-	<File name="include/camera/CameraControls.h" open="1" top="0" tabpos="4">
+	<File name="include/camera/Camera.h" open="1" top="0" tabpos="4">
+		<Cursor position="408" topLine="0" />
+	</File>
+	<File name="include/camera/CameraControls.h" open="0" top="0" tabpos="4">
 		<Cursor position="115" topLine="0" />
+	</File>
+	<File name="include/controls/Controls.h" open="0" top="0" tabpos="0">
+		<Cursor position="269" topLine="0" />
 	</File>
 	<File name="include/glincludes.h" open="0" top="0" tabpos="0">
 		<Cursor position="153" topLine="0" />
 	</File>
-	<File name="include/primitives/Cube.h" open="0" top="0" tabpos="4">
-		<Cursor position="158" topLine="0" />
+	<File name="include/primitives/Cube.h" open="0" top="0" tabpos="3">
+		<Cursor position="0" topLine="0" />
+	</File>
+	<File name="include/primitives/Mesh.h" open="0" top="0" tabpos="4">
+		<Cursor position="166" topLine="0" />
 	</File>
 	<File name="include/primitives/Plane.h" open="0" top="0" tabpos="8">
 		<Cursor position="178" topLine="0" />
@@ -22,32 +34,41 @@
 	<File name="include/primitives/Triangle.h" open="0" top="0" tabpos="9">
 		<Cursor position="125" topLine="0" />
 	</File>
-	<File name="include/scene/Scene.h" open="1" top="0" tabpos="5">
-		<Cursor position="474" topLine="6" />
+	<File name="include/scene/Scene.h" open="0" top="0" tabpos="5">
+		<Cursor position="590" topLine="11" />
 	</File>
-	<File name="include/scene/SceneItem.h" open="1" top="0" tabpos="7">
+	<File name="include/scene/SceneItem.h" open="0" top="0" tabpos="7">
 		<Cursor position="464" topLine="0" />
 	</File>
 	<File name="include/shader.h" open="0" top="0" tabpos="3">
 		<Cursor position="1131" topLine="0" />
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="1">
-		<Cursor position="1642" topLine="36" />
+	<File name="main.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="3560" topLine="99" />
 	</File>
 	<File name="shader.cpp" open="0" top="0" tabpos="2">
 		<Cursor position="104" topLine="94" />
 	</File>
-	<File name="src/Loader.cpp" open="1" top="1" tabpos="1">
-		<Cursor position="3044" topLine="69" />
+	<File name="src/Loader.cpp" open="1" top="1" tabpos="5">
+		<Cursor position="3118" topLine="69" />
 	</File>
-	<File name="src/TextureManager.cpp" open="0" top="0" tabpos="10">
-		<Cursor position="1025" topLine="21" />
+	<File name="src/TextureManager.cpp" open="1" top="0" tabpos="7">
+		<Cursor position="1723" topLine="54" />
 	</File>
-	<File name="src/camera/CameraControls.cpp" open="1" top="0" tabpos="3">
-		<Cursor position="469" topLine="3" />
+	<File name="src/camera/Camera.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1809" topLine="67" />
 	</File>
-	<File name="src/primitives/Cube.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="2186" topLine="27" />
+	<File name="src/camera/CameraControls.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="2573" topLine="0" />
+	</File>
+	<File name="src/controls/Controls.cpp" open="1" top="0" tabpos="3">
+		<Cursor position="360" topLine="0" />
+	</File>
+	<File name="src/primitives/Cube.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="0" topLine="27" />
+	</File>
+	<File name="src/primitives/Mesh.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="309" topLine="0" />
 	</File>
 	<File name="src/primitives/Plane.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="235" topLine="0" />
@@ -55,10 +76,10 @@
 	<File name="src/primitives/Triangle.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="258" topLine="0" />
 	</File>
-	<File name="src/scene/Scene.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="5288" topLine="157" />
+	<File name="src/scene/Scene.cpp" open="1" top="0" tabpos="6">
+		<Cursor position="4746" topLine="169" />
 	</File>
-	<File name="src/scene/SceneItem.cpp" open="1" top="0" tabpos="6">
+	<File name="src/scene/SceneItem.cpp" open="0" top="0" tabpos="6">
 		<Cursor position="139" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

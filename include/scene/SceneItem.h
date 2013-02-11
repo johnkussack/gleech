@@ -15,6 +15,10 @@ class SceneItem
         GLuint texture;
         GLuint textureId;
 
+        glm::mat4 ModelMatrix;
+
+        void processModelMatrix();
+
 
     public:
         SceneItem();
@@ -33,6 +37,8 @@ class SceneItem
         void SetRotation(float a,float b, float c,float d);
         void SetTranslation(float a,float b, float c);
         void SetTexture(GLuint _texture, GLuint _textureId);
+
+        glm::mat4 GetModelMatrix();
 
 
 };

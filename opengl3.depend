@@ -1,8 +1,11 @@
 # depslib dependency file v1.0
-1359679521 source:/root/voxel/opengl3/main.cpp
+1360523106 source:/root/voxel/opengl3/main.cpp
 	<stdio.h>
 	<stdlib.h>
 	<glincludes.h>
+	<AntTweakBar.h>
+	<camera/Camera.h>
+	<controls/Controls.h>
 	<scene/Scene.h>
 	<Loader.h>
 
@@ -590,13 +593,13 @@
 
 1349333034 /usr/include/bits/string3.h
 
-1359544884 /root/voxel/opengl3/include/TextureManager.h
+1360537937 /root/voxel/opengl3/include/TextureManager.h
 	<glincludes.h>
 	<iostream>
 	<vector>
 	<shader.h>
 
-1359666947 source:/root/voxel/opengl3/src/TextureManager.cpp
+1360538199 source:/root/voxel/opengl3/src/TextureManager.cpp
 	"TextureManager.h"
 	<FreeImage.h>
 
@@ -666,16 +669,16 @@
 	<wchar.h>
 	<inttypes.h>
 
-1359684977 source:/root/voxel/opengl3/src/camera/CameraControls.cpp
+1359720259 source:/root/voxel/opengl3/src/camera/CameraControls.cpp
 	<GL/glfw.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<camera/CameraControls.h>
 
-1359668069 source:/root/voxel/opengl3/src/primitives/Cube.cpp
+1360538453 source:/root/voxel/opengl3/src/primitives/Cube.cpp
 	<primitives/Cube.h>
 
-1359669313 source:/root/voxel/opengl3/src/primitives/Plane.cpp
+1360539473 source:/root/voxel/opengl3/src/primitives/Plane.cpp
 	<primitives/Plane.h>
 
 1359657325 source:/root/voxel/opengl3/src/primitives/Primitive.cpp
@@ -684,36 +687,333 @@
 1359669302 source:/root/voxel/opengl3/src/primitives/Triangle.cpp
 	<primitives/Triangle.h>
 
-1359718039 source:/root/voxel/opengl3/src/scene/Scene.cpp
+1360535361 source:/root/voxel/opengl3/src/scene/Scene.cpp
 	<scene/Scene.h>
 
-1359720245 /root/voxel/opengl3/include/scene/Scene.h
-	<glincludes.h>
+1360525202 /root/voxel/opengl3/include/scene/Scene.h
 	<vector>
-	<camera/CameraControls.h>
+	<glincludes.h>
+	<scene/SceneItem.h>
 	<shader.h>
-	<TextureManager.h>
+	<sound/soundManager.h>
+	<camera/Camera.h>
+	<camera/CameraControls.h>
+	<AntTweakBar.h>
+
+1360540483 source:/root/voxel/opengl3/src/scene/SceneItem.cpp
 	<scene/SceneItem.h>
 
-1359685936 source:/root/voxel/opengl3/src/scene/SceneItem.cpp
-	<scene/SceneItem.h>
-
-1359685862 /root/voxel/opengl3/include/scene/SceneItem.h
+1360535448 /root/voxel/opengl3/include/scene/SceneItem.h
 	<glincludes.h>
 	<primitives/Primitive.h>
 
-1359718124 source:/root/voxel/opengl3/src/Loader.cpp
+1360540818 source:/root/voxel/opengl3/src/Loader.cpp
 	<Loader.h>
 
-1359665887 /root/voxel/opengl3/include/Loader.h
+1360536599 /root/voxel/opengl3/include/Loader.h
 	<glincludes.h>
 	<vector>
 	<TextureManager.h>
+	<sound/soundManager.h>
 	<scene/Scene.h>
 	<scene/SceneItem.h>
 	<primitives/Primitive.h>
 	<primitives/Triangle.h>
 	<primitives/Plane.h>
 	<primitives/Cube.h>
+	<primitives/Skybox.h>
+	<primitives/Mesh.h>
 	<shader.h>
+
+1360265233 source:/root/voxel/opengl3/src/primitives/Mesh.cpp
+	<primitives/Mesh.h>
+
+1360185694 /root/voxel/opengl3/include/primitives/Mesh.h
+	<primitives/Primitive.h>
+
+1344505226 /usr/include/AntTweakBar.h
+	<stddef.h>
+	<string>
+	<string>
+
+1360271354 source:/root/voxel/opengl3/src/controls/Controls.cpp
+	<controls/Controls.h>
+
+1360271135 /root/voxel/opengl3/include/controls/Controls.h
+	<glincludes.h>
+	<camera/Camera.h>
+
+1360274222 /root/voxel/opengl3/include/camera/Camera.h
+	<glincludes.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+
+1360539446 source:/root/voxel/opengl3/src/camera/Camera.cpp
+	<camera/Camera.h>
+
+1360532382 source:/root/voxel/opengl3/src/sound/soundManager.cpp
+	<sound/soundManager.h>
+
+1360532079 /root/voxel/opengl3/include/sound/soundManager.h
+	<iostream>
+	<stdlib.h>
+	<SDL/SDL.h>
+	<SDL/SDL_mixer.h>
+
+1316931668 /usr/include/ogg/ogg.h
+	<stddef.h>
+	<ogg/os_types.h>
+
+1316931668 /usr/include/ogg/os_types.h
+	<stdint.h>
+	<sys/types.h>
+	<sys/types.h>
+	<inttypes.h>
+	<sys/types.h>
+	<inttypes.h>
+	<ogg/config_types.h>
+
+1316931668 /usr/include/ogg/config_types.h
+	<inttypes.h>
+	<stdint.h>
+	<sys/types.h>
+
+1340050367 /usr/include/vorbis/codec.h
+	<ogg/ogg.h>
+
+1340050367 /usr/include/vorbis/vorbisenc.h
+	"codec.h"
+
+1340050367 /usr/include/vorbis/vorbisfile.h
+	<stdio.h>
+	"codec.h"
+
+1355258155 /usr/include/AL/al.h
+
+1239813079 /usr/include/AL/alut.h
+	<alc.h>
+	<al.h>
+	<OpenAL/alc.h>
+	<OpenAL/al.h>
+	<AL/al.h>
+	<AL/alc.h>
+
+1355258155 /usr/include/AL/alc.h
+
+1331991135 /usr/include/SDL/SDL.h
+	"SDL_main.h"
+	"SDL_stdinc.h"
+	"SDL_audio.h"
+	"SDL_cdrom.h"
+	"SDL_cpuinfo.h"
+	"SDL_endian.h"
+	"SDL_error.h"
+	"SDL_events.h"
+	"SDL_loadso.h"
+	"SDL_mutex.h"
+	"SDL_rwops.h"
+	"SDL_thread.h"
+	"SDL_timer.h"
+	"SDL_video.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_main.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_stdinc.h
+	"SDL_config.h"
+	<sys/types.h>
+	<stdio.h>
+	<stdlib.h>
+	<stddef.h>
+	<stdarg.h>
+	<stdlib.h>
+	<malloc.h>
+	<stddef.h>
+	<stdarg.h>
+	<memory.h>
+	<string.h>
+	<strings.h>
+	<inttypes.h>
+	<stdint.h>
+	<ctype.h>
+	<iconv.h>
+	"begin_code.h"
+	<alloca.h>
+	<malloc.h>
+	<malloc.h>
+	<malloc.h>
+	<stdlib.h>
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_config.h
+	"SDL_platform.h"
+	<stdarg.h>
+
+1331991135 /usr/include/SDL/SDL_platform.h
+
+1349333033 /usr/include/malloc.h
+	<features.h>
+	<stddef.h>
+	<stdio.h>
+
+1349333034 /usr/include/memory.h
+	<features.h>
+	<string.h>
+
+1349333034 /usr/include/strings.h
+	<features.h>
+	<stddef.h>
+	<xlocale.h>
+
+1349333013 /usr/include/iconv.h
+	<features.h>
+	<stddef.h>
+
+1331991135 /usr/include/SDL/begin_code.h
+
+1331991135 /usr/include/SDL/close_code.h
+
+1331991135 /usr/include/SDL/SDL_audio.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_endian.h"
+	"SDL_mutex.h"
+	"SDL_thread.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_error.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_endian.h
+	"SDL_stdinc.h"
+	<endian.h>
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_mutex.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_thread.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_mutex.h"
+	"begin_code.h"
+	<process.h>
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_rwops.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_cdrom.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_cpuinfo.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_events.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_active.h"
+	"SDL_keyboard.h"
+	"SDL_mouse.h"
+	"SDL_joystick.h"
+	"SDL_quit.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_active.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_keyboard.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_keysym.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_keysym.h
+
+1331991135 /usr/include/SDL/SDL_mouse.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_video.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_video.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"SDL_rwops.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_joystick.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_quit.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+
+1331991135 /usr/include/SDL/SDL_loadso.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_timer.h
+	"SDL_stdinc.h"
+	"SDL_error.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_version.h
+	"SDL_stdinc.h"
+	"begin_code.h"
+	"close_code.h"
+
+1329233919 /usr/include/SDL/SDL_mixer.h
+	"SDL_types.h"
+	"SDL_rwops.h"
+	"SDL_audio.h"
+	"SDL_endian.h"
+	"SDL_version.h"
+	"begin_code.h"
+	"close_code.h"
+
+1331991135 /usr/include/SDL/SDL_types.h
+	"SDL_stdinc.h"
+
+1360535967 /root/voxel/opengl3/include/primitives/Skybox.h
+	<primitives/Primitive.h>
+
+1360538478 source:/root/voxel/opengl3/src/primitives/Skybox.cpp
+	<primitives/Skybox.h>
 

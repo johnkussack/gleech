@@ -4,13 +4,13 @@ Plane::Plane(){
 
     // Define plane vertices (6 * 3float)
 
-    pushVector3(vertices, 5.0f, -1.0f, -5.0f);
-    pushVector3(vertices, -5.0f, -1.0f, -5.0f);
-    pushVector3(vertices, -5.0f, -1.0f, 5.0f);
+    pushVector3(vertices, 0.5f, 0.0f, -0.5f);
+    pushVector3(vertices, -0.5f, 0.0f, -0.5f);
+    pushVector3(vertices, -0.5f, 0.0f, 0.5f);
 
-    pushVector3(vertices, 5.0f, -1.0f, -5.0f);
-    pushVector3(vertices, -5.0f, -1.0f, 5.0f);
-    pushVector3(vertices, 5.0f, -1.0f, 5.0f);
+    pushVector3(vertices, 0.5f, 0.0f, -0.5f);
+    pushVector3(vertices, -0.5f, 0.0f, 0.5f);
+    pushVector3(vertices, 0.5f, 0.0f, 0.5f);
 
 
     // All colors are blue, so doing it that way in a loop
@@ -20,13 +20,13 @@ Plane::Plane(){
     }
 
     //1 face only
-    pushVector2(texturesUv, 1.0f,1.0f);
-    pushVector2(texturesUv, 0.0f, 1.0f);
+    pushVector2(texturesUv, 8.0f,8.0f);
+    pushVector2(texturesUv, 0.0f, 8.0f);
     pushVector2(texturesUv, 0.0f, 0.0f);
 
-    pushVector2(texturesUv, 1.0f, 1.0f);
+    pushVector2(texturesUv, 8.0f, 8.0f);
     pushVector2(texturesUv, 0.0f, 0.0f);
-    pushVector2(texturesUv, 1.0f, 0.0f);
+    pushVector2(texturesUv, 8.0f, 0.0f);
 
 
 }

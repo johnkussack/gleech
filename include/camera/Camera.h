@@ -17,14 +17,12 @@ class Camera{
         float initialFoV;
         float speed;
         float mouseSpeed;
-        double lastTime;
 
         bool dragging;
-        double dragTime;
         float dragX;
         float dragY;
 
-
+        sf::Clock clock;
 
     public:
 

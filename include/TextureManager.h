@@ -5,31 +5,26 @@
 
 #include <iostream>
 #include <vector>
-#include <shader.h>
 
-class Texture{
+using namespace std;
 
-    public:
-        GLuint text;
-        GLuint textId;
 
-};
+class TextureManager{
 
-class TextureManager
-{
-    public:
-        TextureManager(Shader* _shader);
-        virtual ~TextureManager();
-
-        void loadTexture2D(const char* imagepath, bool skybox);
-        GLuint getTexture(int _index);
-        GLuint getTextureId(int _index);
-
-    protected:
 
     private:
-        Shader* textureShader;
-        std::vector<Texture*> Textures;
+        vector<GLuint> Textures;
+        GLuint textInt;
+
+    public:
+        TextureManager();
+        virtual ~TextureManager();
+
+        void loadTexture2DMem(unsigned char* imageData,long length);
+        void loadTexture2D(const char* imagepath, bool skybox);
+        GLuint getTexture(int _index);
+
+
 };
 
 #endif // TEXTUREMANAGER_H

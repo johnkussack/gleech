@@ -2,52 +2,35 @@
 #define SCENE_H
 
 #include <vector>
-#include <glincludes.h>
-
+#include "Globals.h"
 #include <scene/SceneItem.h>
-
-#include <shader.h>
-#include <sound/soundManager.h>
-
-#include <camera/Camera.h>
-#include <camera/CameraControls.h>
-
-#include <AntTweakBar.h>
+#include <import/IndexedModel.h>
 
 
 class Scene{
 
     private:
 
-        std::vector<SceneItem*> items;
-        std::vector<SceneItem*> itemsTextured;
-        //std::vector<SceneModel*> models;
+        vector<SceneItem*> items;
+        vector<SceneItem*> itemsTextured;
+        vector<IndexedModel*> models;
 
-        GLuint vaoSolid;
         GLuint vboSolid[3];
 
-        GLuint vaoText;
         GLuint vboText[3];
 
-        Shader* shader;
-        Shader* shaderTextures;
-
-        Camera* cam;
-        SoundManager* soundMan;
-
+        Globals* glb;
 
     public:
-        Scene(Camera* _cam);
+        Scene(Globals* _glb);
         virtual ~Scene();
 
-        void setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT,SoundManager* sman);
+        void setup(GLuint* _vboSolid, GLuint* _vboTextured);
         void render();
         void renderTest();
 
         void pushItem(SceneItem* _newItem);
-
-
-
+        void pushModel(IndexedModel* _newModel);
 
 };
 

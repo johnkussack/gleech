@@ -1,9 +1,7 @@
 #include <scene/SceneItem.h>
 
-SceneItem::SceneItem()
-{
+SceneItem::SceneItem(){
     texture = 0;
-    textureId = 0;
     scale[0] = 1; scale[1] = 1; scale[2] = 1;
     rotation[0] = 0; rotation[1] = 0; rotation[2] = 0; rotation[3] = 1;
     translation[0] = 0;translation[1] = 0;translation[2] = 0;
@@ -12,8 +10,7 @@ SceneItem::SceneItem()
 
 }
 
-SceneItem::~SceneItem()
-{
+SceneItem::~SceneItem(){
     //dtor
 }
 
@@ -43,9 +40,8 @@ void SceneItem::SetTranslation(float a,float b, float c){
     processModelMatrix();
 }
 
-void SceneItem::SetTexture(GLuint _texture, GLuint _textureId){
+void SceneItem::SetTexture(GLuint _texture){
     texture = _texture;
-    textureId = _textureId;
 }
 
 void SceneItem::processModelMatrix(){

@@ -1,8 +1,8 @@
 #include <scene/Scene.h>
 
 
-Scene::Scene(Camera* _cam){
-    cam = _cam;
+Scene::Scene(Globals* _glb){
+    glb = _glb;
 }
 
 Scene::~Scene(){
@@ -15,25 +15,26 @@ Scene::~Scene(){
         delete itemsTextured[i];
     }
 
+    for(unsigned int i = 0;i<models.size();i++){
+        delete models[i];
+    }
+
+    items.clear();
+    itemsTextured.clear();
+    models.clear();
 
 }
 
 
-void Scene::setup(GLuint _vaoSolid,GLuint* _vboSolid, GLuint _vaoTextured, GLuint* _vboTextured, Shader* _shader, Shader* _shaderT,SoundManager* _sman){
-    vaoSolid = _vaoSolid;
+void Scene::setup(GLuint* _vboSolid,  GLuint* _vboTextured){
     vboSolid[0] = _vboSolid[0];
     vboSolid[1] = _vboSolid[1];
     vboSolid[2] = _vboSolid[2];
 
-    vaoText = _vaoTextured;
     vboText[0] = _vboTextured[0];
     vboText[1] = _vboTextured[1];
     vboText[2] = _vboTextured[2];
 
-    shader = _shader;
-    shaderTextures = _shaderT;
-
-    soundMan = _sman;
 }
 
 void Scene::pushItem(SceneItem* _newItem){
@@ -47,87 +48,86 @@ void Scene::pushItem(SceneItem* _newItem){
 
 }
 
-void Scene::renderTest(){
-
-    shader->bind(); // Bind our shader
-
-        // Get a handle for our "MVP" uniform.
-        // Only at initialisation time.
-
-        // Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
-        glm::mat4 Projection = glm::perspective(45.0f, 4.0f / 3.0f, 0.1f, 100.0f);
-        // Camera matrix
-        glm::mat4 View = glm::lookAt(
-            glm::vec3(4,3,3), // Camera is at (4,3,3), in World Space
-            glm::vec3(0,0,0), // and looks at the origin
-            glm::vec3(0,1,0) // Head is up (set to 0,-1,0 to look upside-down)
-        );
-
-        // Model matrix : an identity matrix (model will be at the origin)
-        glm::mat4 Model = glm::mat4(1.0f); // Changes for each model !
-        // Our ModelViewProjection : multiplication of our 3 matrices
-        glm::mat4 MVP = Projection * View * Model; // Remember, matrix multiplication is the other way around
-        GLuint MatrixID = glGetUniformLocation(shader->id(), "MVP");
-
-        // Send our transformation to the currently bound shader,
-        // in the "MVP" uniform
-        // For each model you render, since the MVP will be different (at least the M part)
-        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-
-        // DRAW VBAO contents
-
-
-
-        //glBindVertexArray(vaoSolid); // Bind our Vertex Array Object
-
-        glEnableVertexAttribArray(0);
-		glBindBuffer(GL_ARRAY_BUFFER, vboSolid[0]);
-		glVertexAttribPointer(
-			0,                  // attribute
-			3,                  // size
-			GL_FLOAT,           // type
-			GL_FALSE,           // normalized?
-			0,                  // stride
-			(void*)0            // array buffer offset
-		);
-
-		// 2nd attribute buffer : UVs
-		glEnableVertexAttribArray(1);
-		glBindBuffer(GL_ARRAY_BUFFER, vboSolid[1]);
-		glVertexAttribPointer(
-			1,                                // attribute
-			3,                                // size
-			GL_FLOAT,                         // type
-			GL_FALSE,                         // normalized?
-			0,                                // stride
-			(void*)0                          // array buffer offset
-		);
-
-        glDrawArrays(GL_TRIANGLES, 9, 36); // Draw our square
-        //glBindVertexArray(0); // Unbind our Vertex Array Object
-        glDisableVertexAttribArray(0);
-		glDisableVertexAttribArray(1);
-        // DRAW END
-
-
-    shader->unbind(); // Unbind our shader
+void Scene::pushModel(IndexedModel* _newModel){
+    models.push_back(_newModel);
+    cout<<"[Scene] Added new model (ptr "<<_newModel<<") Meshes inside: " <<_newModel->getModelMeshCount()<<endl;
 }
+
 
 
 void Scene::render(){
 
-
-    /**** Process Keyboard and mouse inputs ****/
     glm::mat4 V;glm::mat4 P;
     glm::mat4 MVP;
     GLuint MatrixID;
 
-    cam->GetVP(&V,&P);
+    glb->camera->GetVP(&V,&P);
+
+    glm::mat4 M(1.0f);
+    
+    //////RENDER MODELS
+
+
+    glb->textureShader->bind(); // Bind our shader
+
+    glActiveTexture(GL_TEXTURE0);
+
+    for(unsigned int i=0;i<models.size();i++){
+
+        IndexedModel * m = models[i];
+
+        MVP = P*V*m->getModelMatrix();
+        MatrixID = glGetUniformLocation(glb->textureShader->id(), "MVP");
+        glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+        for(int j=0;j<m->getModelMeshCount();j++){
+
+            ModelMesh* mm = m->getModelMesh(j);
+
+            ////////////////
+            if(i>1){
+                glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+                glBindTexture(GL_TEXTURE_2D, mm->getTexture());
+
+            }else{
+                glBindTexture(GL_TEXTURE_2D, mm->getTexture());
+
+            }
+            
+
+            ////////////////
+
+            glEnableVertexAttribArray(0);
+            glBindBuffer(GL_ARRAY_BUFFER, mm->getVbos()[0]);
+            glVertexAttribPointer(0,3,GL_FLOAT,GL_FALSE,0,(void*)0);
+
+            glEnableVertexAttribArray(1);
+            glBindBuffer(GL_ARRAY_BUFFER, mm->getVbos()[1]);
+            glVertexAttribPointer(1,2,GL_FLOAT,GL_FALSE,0,(void*)0);
+
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, mm->getElementBuffer());
+            glDrawElements(GL_TRIANGLES, mm->getIndices()->size(), GL_UNSIGNED_INT, 0);
+
+            glDisableVertexAttribArray(1);
+            glDisableVertexAttribArray(0);
+
+            if(i>1){
+                glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
+            }
+
+        }
+
+    }
+
+    glb->textureShader->unbind();
+
+
+    //////
+
+
 
     /**** Render SOLID ****/
-    shader->bind(); // Bind our shader
-
-        glUseProgram(shader->id());
+    glb->solidShader->bind(); // Bind our shader
 
         glEnableVertexAttribArray(0);
 
@@ -138,11 +138,12 @@ void Scene::render(){
 		glBindBuffer(GL_ARRAY_BUFFER, vboSolid[1]);
 		glVertexAttribPointer(	1,	3,	GL_FLOAT,GL_FALSE,	0,	(void*)0 );
 
+
 		for(unsigned int i=0;i<items.size();i++){
 		    SceneItem* t = items[i];
 
             MVP = P*V*t->GetModelMatrix();
-		    MatrixID = glGetUniformLocation(shader->id(), "MVP");
+		    MatrixID = glGetUniformLocation(glb->solidShader->id(), "MVP");
 
             glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
@@ -150,19 +151,16 @@ void Scene::render(){
 		}
 
 
+
         glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
-    shader->unbind();
+    glb->solidShader->unbind();
 
 
     /**** Render TEXTURED ****/
 
-    shaderTextures->bind(); // Bind our shader
-
-
-        glUseProgram(shaderTextures->id());
-
+    glb->textureShader->bind(); // Bind our shader
 
         glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vboText[0]);
@@ -179,14 +177,14 @@ void Scene::render(){
 
 
 		    MVP = P*V*t->GetModelMatrix();
-		    MatrixID = glGetUniformLocation(shaderTextures->id(), "MVP");
+		    MatrixID = glGetUniformLocation(glb->textureShader->id(), "MVP");
 
             glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
             ////////////////
             glActiveTexture(GL_TEXTURE0);
             glBindTexture(GL_TEXTURE_2D, t->getTexture());
-            glUniform1i(t->getTextureId(), 0);
+            //glUniform1i(t->getTextureId(), 0);
 
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
             glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
@@ -194,19 +192,22 @@ void Scene::render(){
 
 
             glDrawArrays(GL_TRIANGLES, t->getOffset(), t->getVerticesCount());
-		}
+	}
 
 
 
         glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
 
-    shaderTextures->unbind();
+    glb->textureShader->unbind();
+
+    // Disable any binding, so SFML doesnt yell
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
 
-    if (!soundMan->playing()){
-        soundMan->play();
-
+    if (!glb->soundMan->playing()){
+        glb->soundMan->play();
     }
 
 

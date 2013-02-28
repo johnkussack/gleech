@@ -1,21 +1,22 @@
 #include <primitives/Primitive.h>
 
 Primitive::Primitive(){
-    vertices = new vector<GLfloat>();
-    colors= new vector<GLfloat>();
-    texturesUv= new vector<GLfloat>();
-    normals = new vector<GLfloat>();
+
 }
 
 Primitive::~Primitive(){
-    vertices->clear();
-    colors->clear();
-    texturesUv->clear();
-    normals->clear();
+    vertices.clear();
+}
 
-    delete vertices;
-    delete colors;
-    delete texturesUv;
-    delete normals;
+void Primitive::pushVertex(ModelVertex* v){
+    vertices.push_back(v);
+}
 
+
+ModelVertex* Primitive::getVertex(int _index){
+    return vertices[_index];
+}
+
+int Primitive::getVerticesCount(){
+    return vertices.size();
 }

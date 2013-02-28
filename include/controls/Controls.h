@@ -2,9 +2,6 @@
 #define CONTROLS_H
 
 #include <glincludes.h>
-#include <camera/Camera.h>
-
-
 
 class Controls{
 
@@ -12,10 +9,9 @@ class Controls{
         bool mouseRDown;
         bool mouseLDown;
         double deltaTime;
-        Camera* cam;
 
     public:
-        Controls(Camera* _cam);
+        Controls();
         virtual ~Controls();
 
         void GLFWCALL OnMousePos(int mouseX, int mouseY);

@@ -1,57 +1,75 @@
+
 #include <Loader.h>
 
-Loader::Loader(Scene* _scene){
+Loader::Loader(Globals* _glb, Scene* _scene){
+    glb = _glb;
+    scene = _scene;
 
-    /**** GENERATE TEXTURES ****/
-
-    shader = new Shader("/root/voxel/opengl3/shader.vert", "/root/voxel/opengl3/shader.frag");
-    shaderTextures = new Shader("/root/voxel/opengl3/textureshader.vert", "/root/voxel/opengl3/textureshader.frag");
-
-    textMan = new TextureManager(shaderTextures);
-    textMan->loadTexture2D("/root/voxel/opengl3/texture.jpg",true);
-    textMan->loadTexture2D("/root/voxel/opengl3/building.jpg",false);
-    textMan->loadTexture2D("/root/voxel/opengl3/skybox.jpg", true);
-
-    soundM = new SoundManager();
-    soundM->open("/root/voxel/opengl3/alternative.ogg");
+}
 
 
-    /**** CREATE PRIMITIVES TO USE ****/
+void Loader::InitShaders(string vertexPath, string fragmentPath,string textureVertexPath, string textureFragmentPath){
+    glb->solidShader = new Shader(vertexPath.c_str(), fragmentPath.c_str());
+    glb->textureShader = new Shader(textureVertexPath.c_str(), textureFragmentPath.c_str());
+    glb->textMan = new TextureManager();
+   
+}
+
+void Loader::InitPrimitives(){
 
     primitiveStore.push_back(new Triangle());
     primitiveStore.push_back(new Plane());
     primitiveStore.push_back(new Cube());
     primitiveStore.push_back(new Skybox());
 
-
-
     /**** JOIN PRIMITIVES VALUES ****/
 
-    std::vector<GLfloat> vertices;
-    std::vector<GLfloat> colors;
-    std::vector<GLfloat> texturesUV;
-    std::vector<GLfloat> normals;
+    vector<GLfloat> vertices;
+    vector<GLfloat> colors;
+    vector<GLfloat> normals;
+    vector<GLfloat> texturesUV;
+
+    /**** CREATE PRIMITIVES TO USE ****/
+
     int verticesAcumulator = 0;
 
     for(unsigned int i = 0;i<primitiveStore.size();i++){
 
-        vertices.insert(vertices.end(), primitiveStore[i]->getVertices()->begin(), primitiveStore[i]->getVertices()->end());
-        colors.insert(colors.end(), primitiveStore[i]->getColors()->begin(), primitiveStore[i]->getColors()->end());
-        texturesUV.insert(texturesUV.end(), primitiveStore[i]->getTexturesUv()->begin(), primitiveStore[i]->getTexturesUv()->end());
+        unsigned int totalVertices = primitiveStore.at(i)->getVerticesCount();
 
-        // Store the vertex offsets, to draw array ranges later
-        primitiveStore[i]->sceneOffset = verticesAcumulator;
-        verticesAcumulator+=primitiveStore[i]->getHumanVertexCount();
+        for(unsigned int j = 0;j<totalVertices;j++){
+
+            ModelVertex* v = primitiveStore.at(i)->getVertex(j);
+
+            vertices.push_back(v->coords.x);
+            vertices.push_back(v->coords.y);
+            vertices.push_back(v->coords.z);
+
+            colors.push_back(v->color.x);
+            colors.push_back(v->color.y);
+            colors.push_back(v->color.z);
+
+            normals.push_back(v->normal.x);
+            normals.push_back(v->normal.y);
+            normals.push_back(v->normal.z);
+
+            texturesUV.push_back(v->uvCoords.x);
+            texturesUV.push_back(v->uvCoords.y);
+
+        }
+
+        verticesAcumulator+=primitiveStore[i]->getVerticesCount();
 
     }
 
+    cout<<"VAO CHECK. Vertices count: "<<vertices.size()<<endl;
+    cout<<"VAO CHECK. Color count: "<<colors.size()<<endl;
+    cout<<"VAO CHECK. Normal count: "<<normals.size()<<endl;
+    cout<<"VAO CHECK. UV count: "<<texturesUV.size()<<endl;
 
     /**** CREATE VAO & VBO ****/
 
-
-
     /**  Generate VBO for solid primitives (vertex & colors) **/
-
 
     glGenBuffers(3, &sceneVbo[0]);
 
@@ -70,56 +88,70 @@ Loader::Loader(Scene* _scene){
     glBufferData(GL_ARRAY_BUFFER, texturesUV.size()*sizeof(GLfloat),&texturesUV[0], GL_STATIC_DRAW);
 
 
-        /**** Pass info to the scene & setup ****/
+    glBindBuffer(GL_ARRAY_BUFFER,0);
+    
+    /**** Pass info to the scene & setup ****/
 
-    _scene->setup(sceneVao,sceneVbo, sceneVaoTextured, sceneVboTextured, shader, shaderTextures,soundM);
-
-
-    /**** TEST STUFF ADDING HERE ****/
-
-    SceneItem* testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[1]); //plane
-        testItem->SetScale(90,1,90);
-        testItem->SetTranslation(0,0.5,0);
-        testItem->SetTexture(textMan->getTexture(0),textMan->getTextureId(0));
-
-    _scene->pushItem(testItem);
-
-
-    //BUILDINGS
-    testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); // cube
-        testItem->SetTranslation(-1.0f,0.5f,0);
-        testItem->SetScale(10,15,10);
-        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
-    _scene->pushItem(testItem);
-
-    testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); // cube
-        testItem->SetTranslation(-1.0f,0.5f,-3.0);
-        testItem->SetScale(10,15,10);
-        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
-    _scene->pushItem(testItem);
-
-    testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[2]); // cube
-        testItem->SetTranslation(1.0f,0.5f,-3.0);
-        testItem->SetScale(10,15,10);
-        testItem->SetTexture(textMan->getTexture(1),textMan->getTextureId(1));
-    _scene->pushItem(testItem);
-
-    //SKYBOX
-
-
-    testItem = new SceneItem();
-        testItem->SetPrimitive(primitiveStore[3]); // skybox
-        testItem->SetTexture(textMan->getTexture(2),textMan->getTextureId(2));
-        testItem->SetScale(100,100,100);
-    _scene->pushItem(testItem);
-
+    scene->setup(sceneVbo, sceneVboTextured);
 
 
 }
+
+void Loader::LoadTexture(string path, bool skybox){
+    glb->textMan->loadTexture2D(path.c_str(),skybox);
+}
+
+void Loader::AddPrimitive(int index, int textureIndex, glm::vec3 scale,glm::vec3 translation){
+    SceneItem* testItem = new SceneItem();
+        testItem->SetPrimitive(primitiveStore[index]);
+        testItem->SetScale(scale.x,scale.y,scale.z);
+        testItem->SetTranslation(translation.x,translation.y,translation.z);
+        if(textureIndex>=0){
+            testItem->SetTexture(glb->textMan->getTexture(textureIndex));
+        }
+    scene->pushItem(testItem);
+}
+
+void Loader::AddMxoMga(string path, int textureIndex, glm::vec3 translation){
+    MxoMga mga(path);
+
+    if(mga.Parse()){
+        IndexedModel *temp = mga.getModel();
+
+        temp->setTranslation(translation);
+        for(int i = 0; i< temp->getModelMeshCount();i++){
+            temp->setTexture(i,glb->textMan->getTexture(textureIndex));
+        }
+
+
+        scene->pushModel(temp);
+    }else{
+        cout<<"Could not load MXO MGA: "<<path<<endl;
+    }
+
+}
+
+void Loader::AddMxoProp(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation){
+
+    MxoProp prop(path);
+    if(prop.Parse()){
+
+        IndexedModel *temp = prop.getModel();
+        temp->setScale(scale);
+        temp->setRotation(rotation);
+        temp->setTranslation(translation);
+        
+        for(int i = 0; i< temp->getModelMeshCount();i++){
+            temp->setTexture(i,glb->textMan->getTexture(textureIndex));
+        }
+
+        scene->pushModel(temp);
+    }else{
+        cout<<"Could not load MXO Prop: "<<path<<endl;
+    }
+
+}
+
 
 Loader::~Loader(){
 
@@ -128,17 +160,10 @@ Loader::~Loader(){
     for(unsigned int i = 0;i<primitiveStore.size();i++){
         delete primitiveStore[i];
     }
+    primitiveStore.clear();
 
     glDeleteBuffers(3, sceneVbo);
     glDeleteBuffers(3, sceneVboTextured);
 
-    glDeleteVertexArrays(1, &sceneVao);
-    glDeleteVertexArrays(1, &sceneVaoTextured);
 
-
-
-    delete soundM;
-    delete textMan;
-    delete shader;
-    delete shaderTextures;
 }

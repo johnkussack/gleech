@@ -1,6 +1,15 @@
 #ifndef __SHADER__H
 #define __SHADER__H
 
+
+#include <glincludes.h>
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <shader.h>
+
+using namespace std;
+
 /**
 	Shader is a class designed to allow us to load and use a GLSL shader program in
 	our OpenGL application. It allows us to provide filenames for the vertex and

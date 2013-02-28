@@ -8,7 +8,7 @@ layout(location = 1) in vec3 vertexColor;
 
 void main(void){
 	
-	vec4 v = vec4(vertexPosition_modelspace,1); // Transform an homogeneous 4D vector, remember ?
+	vec4 v = vec4(vertexPosition_modelspace,1);
 	gl_Position = MVP * v;
 	
 	fragmentColor = vertexColor;

@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <logicalFolder name="include" displayName="include" projectFiles="true">
+        <logicalFolder name="camera" displayName="camera" projectFiles="true">
+          <itemPath>include/camera/Camera.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="controls" displayName="controls" projectFiles="true">
+          <itemPath>include/controls/Controls.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="import" displayName="import" projectFiles="true">
+          <itemPath>include/import/BinaryWalker.h</itemPath>
+          <itemPath>include/import/IndexedModel.h</itemPath>
+          <itemPath>include/import/MxoMga.h</itemPath>
+          <itemPath>include/import/MxoProp.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="lua" displayName="lua" projectFiles="true">
+          <itemPath>include/lua/LunaLoader.h</itemPath>
+          <itemPath>include/lua/luautils.hpp</itemPath>
+          <itemPath>include/lua/luna.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="primitives" displayName="primitives" projectFiles="true">
+          <itemPath>include/primitives/Cube.h</itemPath>
+          <itemPath>include/primitives/Mesh.h</itemPath>
+          <itemPath>include/primitives/ModelVertex.h</itemPath>
+          <itemPath>include/primitives/Plane.h</itemPath>
+          <itemPath>include/primitives/Primitive.h</itemPath>
+          <itemPath>include/primitives/Skybox.h</itemPath>
+          <itemPath>include/primitives/Triangle.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="scene" displayName="scene" projectFiles="true">
+          <itemPath>include/scene/Scene.h</itemPath>
+          <itemPath>include/scene/SceneItem.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="sound" displayName="sound" projectFiles="true">
+          <itemPath>include/sound/soundManager.h</itemPath>
+        </logicalFolder>
+        <itemPath>include/Globals.h</itemPath>
+        <itemPath>include/Loader.h</itemPath>
+        <itemPath>include/Store.hpp</itemPath>
+        <itemPath>include/TextureManager.h</itemPath>
+        <itemPath>include/glincludes.h</itemPath>
+        <itemPath>include/shader.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+      <logicalFolder name="resources" displayName="resources" projectFiles="true">
+        <logicalFolder name="shaders" displayName="shaders" projectFiles="true">
+          <itemPath>resources/shaders/shader.frag</itemPath>
+          <itemPath>resources/shaders/shader.vert</itemPath>
+          <itemPath>resources/shaders/textureshader.frag</itemPath>
+          <itemPath>resources/shaders/textureshader.vert</itemPath>
+        </logicalFolder>
+        <itemPath>resources/BMBody.dds</itemPath>
+        <itemPath>resources/MonospaceTypewriter.ttf</itemPath>
+        <itemPath>resources/aban_van.dds</itemPath>
+        <itemPath>resources/building.jpg</itemPath>
+        <itemPath>resources/crate.jpg</itemPath>
+        <itemPath>resources/furious_angels.ogg</itemPath>
+        <itemPath>resources/init.lua</itemPath>
+        <itemPath>resources/main.ogg</itemPath>
+        <itemPath>resources/skybox.jpg</itemPath>
+        <itemPath>resources/texture.jpg</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <logicalFolder name="camera" displayName="camera" projectFiles="true">
+          <itemPath>src/camera/Camera.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="controls" displayName="controls" projectFiles="true">
+          <itemPath>src/controls/Controls.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="import" displayName="import" projectFiles="true">
+          <itemPath>src/import/BinaryWalker.cpp</itemPath>
+          <itemPath>src/import/IndexedModel.cpp</itemPath>
+          <itemPath>src/import/MxoMga.cpp</itemPath>
+          <itemPath>src/import/MxoProp.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="lua" displayName="lua" projectFiles="true">
+          <itemPath>src/lua/LunaLoader.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="primitives" displayName="primitives" projectFiles="true">
+          <itemPath>src/primitives/Cube.cpp</itemPath>
+          <itemPath>src/primitives/Mesh.cpp</itemPath>
+          <itemPath>src/primitives/ModelVertex.cpp</itemPath>
+          <itemPath>src/primitives/Plane.cpp</itemPath>
+          <itemPath>src/primitives/Primitive.cpp</itemPath>
+          <itemPath>src/primitives/Skybox.cpp</itemPath>
+          <itemPath>src/primitives/Triangle.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="scene" displayName="scene" projectFiles="true">
+          <itemPath>src/scene/Scene.cpp</itemPath>
+          <itemPath>src/scene/SceneItem.cpp</itemPath>
+        </logicalFolder>
+        <logicalFolder name="sound" displayName="sound" projectFiles="true">
+          <itemPath>src/sound/soundManager.cpp</itemPath>
+        </logicalFolder>
+        <itemPath>src/Globals.cpp</itemPath>
+        <itemPath>src/Loader.cpp</itemPath>
+        <itemPath>src/TextureManager.cpp</itemPath>
+        <itemPath>src/shader.cpp</itemPath>
+      </logicalFolder>
+      <itemPath>main.cpp</itemPath>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>include</pElem>
+          </incDir>
+        </ccTool>
+        <linkerTool>
+          <linkerLibItems>
+            <linkerOptionItem>`pkg-config --libs glew`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs sfml-audio`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs sfml-graphics`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs gl`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs zlib`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs lua`</linkerOptionItem>
+            <linkerLibLibItem>freeimage</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
+      </compileType>
+      <item path="include/Globals.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Loader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Store.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/TextureManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/camera/Camera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/controls/Controls.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/glincludes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/BinaryWalker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/IndexedModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/MxoMga.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/MxoProp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/LunaLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/luautils.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/luna.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Cube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Mesh.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/ModelVertex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Plane.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Primitive.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Skybox.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Triangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/SceneItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/shader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/sound/soundManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources/BMBody.dds" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/MonospaceTypewriter.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/aban_van.dds" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/building.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/crate.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/furious_angels.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/init.lua" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/main.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/shader.frag" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/shader.vert" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/textureshader.frag"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/shaders/textureshader.vert"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/skybox.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/texture.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Globals.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Loader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TextureManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/camera/Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/controls/Controls.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/BinaryWalker.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/MxoMga.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/MxoProp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lua/LunaLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Cube.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Mesh.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/ModelVertex.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Plane.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Primitive.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Skybox.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Triangle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/scene/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/scene/SceneItem.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/shader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sound/soundManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="include/Globals.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Loader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/Store.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/TextureManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/camera/Camera.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/controls/Controls.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/glincludes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/BinaryWalker.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/IndexedModel.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/MxoMga.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/import/MxoProp.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/LunaLoader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/luautils.hpp" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/lua/luna.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Cube.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Mesh.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/ModelVertex.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Plane.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Primitive.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Skybox.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/primitives/Triangle.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/Scene.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/scene/SceneItem.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/shader.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="include/sound/soundManager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources/BMBody.dds" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/MonospaceTypewriter.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/aban_van.dds" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/building.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/crate.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/furious_angels.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/init.lua" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/main.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/shader.frag" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/shader.vert" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/shaders/textureshader.frag"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/shaders/textureshader.vert"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="resources/skybox.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="resources/texture.jpg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="src/Globals.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/Loader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/TextureManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/camera/Camera.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/controls/Controls.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/BinaryWalker.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/MxoMga.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/import/MxoProp.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/lua/LunaLoader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Cube.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Mesh.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/ModelVertex.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Plane.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Primitive.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Skybox.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/primitives/Triangle.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/scene/Scene.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/scene/SceneItem.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/shader.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="src/sound/soundManager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

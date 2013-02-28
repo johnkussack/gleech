@@ -1,10 +1,6 @@
-#include <glincludes.h>
-#include <iostream>
-#include <fstream>
-#include <string.h>
-#include <shader.h>
 
-using namespace std; // Include the standard namespace
+
+#include <shader.h>
 
 
 /**

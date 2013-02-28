@@ -11,10 +11,10 @@ Camera::Camera()
 
     initialFoV = 45.0f;
 
-    speed = 3.0f; // 3 units / second
-    mouseSpeed = 0.5f;
+    speed = 3.0f /2000; // 3 units / second
+    mouseSpeed = 0.5f /2000;
 
-    Camera::lastTime = -1; // INIT
+
 
 }
 
@@ -75,36 +75,31 @@ void Camera::KeyMovement(){
 void Camera::GetVP(glm::mat4* V,glm::mat4*P){
 
 
-	if(lastTime==-1) { lastTime = glfwGetTime(); }
+	//if(lastTime==-1) { lastTime =(clock.restart()); }
 
 	// Compute time difference between current and last frame
-	double currentTime = glfwGetTime();
-	float deltaTime = float(currentTime - lastTime);
+
+	float deltaTime = (clock.restart()).asMilliseconds();
 
 	// Get mouse position
 	int xpos, ypos;
-	glfwGetMousePos(&xpos, &ypos);
+	sf::Vector2i globalPosition = sf::Mouse::getPosition();
 
-	// Reset mouse position for next frame
-	//glfwSetMousePos(1024/2, 738/2);
+    xpos = globalPosition.x;
+    ypos = globalPosition.y;
+    ///TODO: global to local
 
-   if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_2) == GLFW_PRESS){
-
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Right)){
         if (!dragging){
             dragging = true;
-            dragTime = currentTime;
             dragX = xpos;
             dragY = ypos;
         }
         else{
-            float dragDeltaTime = float(currentTime-dragTime);
-            horizontalAngle += mouseSpeed/20 * dragDeltaTime * float(dragX - xpos );
-            verticalAngle   += mouseSpeed/20 * dragDeltaTime * float(dragY - ypos );
-            dragTime = currentTime;
+            float dragDeltaTime = (clock.restart()).asMilliseconds();
+            horizontalAngle += mouseSpeed * dragDeltaTime * float(dragX - xpos );
+            verticalAngle   += mouseSpeed * dragDeltaTime * float(dragY - ypos );
         }
-
-	// Compute new orientation
-
     }else{
         dragging = false;
     }
@@ -120,34 +115,32 @@ void Camera::GetVP(glm::mat4* V,glm::mat4*P){
 	);
 	glm::vec3 right = glm::cross( direction, up );
 
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+	    if(sf::Keyboard::isKeyPressed(sf::Keyboard::RShift)){
+	        float sp = speed * 2;
+	        position += (direction * deltaTime * sp);
+	    }else{
+            position += direction * deltaTime * speed;
+	    }
+    }
 
-	if (glfwGetKey( GLFW_KEY_UP ) == GLFW_PRESS){
-		position += direction * deltaTime * speed;
-
-	}
-	// Move backward
-	if (glfwGetKey( GLFW_KEY_DOWN ) == GLFW_PRESS){
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
 		position -= direction * deltaTime * speed;
-
 	}
-	// Strafe right
-	if (glfwGetKey( GLFW_KEY_RIGHT ) == GLFW_PRESS){
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
 		position += right * deltaTime * speed;
 
 	}
-	// Strafe left
-	if (glfwGetKey( GLFW_KEY_LEFT ) == GLFW_PRESS){
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
 		position -= right * deltaTime * speed;
 	}
 
 
 	float FoV = 45;
 
-	// Projection matrix : 45° Field of View, 4:3 ratio, display range : 0.1 unit <-> 100 units
     *P = glm::perspective(FoV, 4.0f / 3.0f, 0.1f, 100.0f);
-	// Camera matrix
-
-
 
 	*V       = glm::lookAt(
                 position,           // Camera is here
@@ -156,5 +149,4 @@ void Camera::GetVP(glm::mat4* V,glm::mat4*P){
            );
 
 
-    lastTime = currentTime;
 }

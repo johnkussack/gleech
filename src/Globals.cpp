@@ -6,24 +6,23 @@ Globals::Globals(){
     
     
     APPTITLE = "GLEECH V000000000.3";
-    GUITITLE = "Engine Optimizations. Indexed model placement tests";
+    GUITITLE = "DreamWorld";
     APPWIDTH = 1074;
     APPHEIGHT = 768;
     
     camera = new Camera();
-    controls = new Controls();
-    
+    camera->setResolution(APPWIDTH,APPHEIGHT);
+
     textMan = new TextureManager();
     soundMan = new SoundManager();
     
-    soundMan->open("/root/workspace/gleech/resources/furious_angels.ogg");
+    soundMan->open("/root/workspace/gleechA/resources/Mxos.ogg");
     
     
 }
 
 Globals::~Globals(){
     deleteifnotnull(camera);
-    deleteifnotnull(controls);
     deleteifnotnull(solidShader);
     deleteifnotnull(textureShader);
     deleteifnotnull(textMan);

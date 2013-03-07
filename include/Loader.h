@@ -15,6 +15,8 @@
 
 #include <import/MxoProp.h>
 #include <import/MxoMga.h>
+#include <import/MxoEprf.h>
+#include <import/MxoIprf.h>
 #include <import/IndexedModel.h>
 
 class Loader{
@@ -38,7 +40,9 @@ class Loader{
         void LoadTexture(string path, bool skybox);
         void AddPrimitive(int index, int textureIndex,glm::vec3 scale, glm::vec3 translation);
         void AddMxoMga(string path, int textureIndex, glm::vec3 translation);
-        void AddMxoProp(string path, int textureIntex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void AddMxoProp(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void AddMxoEprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void AddMxoIprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
 
 
 };

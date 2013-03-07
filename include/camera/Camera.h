@@ -17,12 +17,23 @@ class Camera{
         float initialFoV;
         float speed;
         float mouseSpeed;
+        
+        // Speeds on keyboard
+        float fordwardSpeed;
+        float backwardSpeed;
+        
+        float rightSpeed;
+        float leftSpeed;
 
-        bool dragging;
-        float dragX;
-        float dragY;
-
-        sf::Clock clock;
+        // Mouse Diffs
+        float mouseDx;
+        float mouseDy;
+        
+        // Resolutions
+        int width;
+        int height;
+        
+        float radians;
 
     public:
 
@@ -30,12 +41,26 @@ class Camera{
 
         Camera();
 
-        void KeyMovement();
         void GetVP(glm::mat4* V,glm::mat4*P);
 
         virtual ~Camera();
+        
+        void setResolution(int _w,int _h);
+        
+        void goForward();
+        void goBackward();
+        void goLeft();
+        void goRight();
+        
+        void stopForward();
+        void stopBackward();
+        void stopLeft();
+        void stopRight();
 
-
+        void dragMouse(int dx, int dy);
+        
+        glm::vec3 getPosition();
+        
 
 };
 

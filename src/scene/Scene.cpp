@@ -85,15 +85,8 @@ void Scene::render(){
             ModelMesh* mm = m->getModelMesh(j);
 
             ////////////////
-            if(i>1){
-                glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
-                glBindTexture(GL_TEXTURE_2D, mm->getTexture());
 
-            }else{
-                glBindTexture(GL_TEXTURE_2D, mm->getTexture());
-
-            }
-            
+            glBindTexture(GL_TEXTURE_2D, mm->getTexture());
 
             ////////////////
 
@@ -111,9 +104,9 @@ void Scene::render(){
             glDisableVertexAttribArray(1);
             glDisableVertexAttribArray(0);
 
-            if(i>1){
-                glPolygonMode( GL_FRONT_AND_BACK, GL_FILL );
-            }
+           
+                
+            
 
         }
 

@@ -26,6 +26,8 @@ class LunaLoader{
         int AddPrimitive(lua_State* L);
         int AddMxoMga(lua_State* L);
         int AddMxoProp(lua_State* L);
+        int AddMxoEprf(lua_State* L);
+        int AddMxoIprf(lua_State* L);
 
 
 

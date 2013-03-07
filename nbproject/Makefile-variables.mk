@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux-x86
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux-x86
-CND_ARTIFACT_NAME_Debug=gleech
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/gleech
+CND_ARTIFACT_NAME_Debug=gleecha
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux-x86/gleecha
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Debug=gleech.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/gleech.tar
+CND_PACKAGE_NAME_Debug=gleecha.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux-x86/package/gleecha.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux-x86
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux-x86
-CND_ARTIFACT_NAME_Release=gleech
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/gleech
+CND_ARTIFACT_NAME_Release=gleecha
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux-x86/gleecha
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux-x86/package
-CND_PACKAGE_NAME_Release=gleech.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/gleech.tar
+CND_PACKAGE_NAME_Release=gleecha.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux-x86/package/gleecha.tar
 #
 # include compiler specific variables
 #

@@ -152,6 +152,50 @@ void Loader::AddMxoProp(string path, int textureIndex, glm::vec3 scale,glm::vec3
 
 }
 
+void Loader::AddMxoEprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation){
+
+    MxoEprf eprf(path);
+    if(eprf.Parse()){
+        
+        IndexedModel* temp = eprf.getModel();
+        temp->setScale(scale);
+        temp->setRotation(rotation);
+        temp->setTranslation(translation);
+        
+        for(int i = 0; i< temp->getModelMeshCount();i++){
+            temp->setTexture(i,glb->textMan->getTexture(textureIndex));
+        }
+
+        scene->pushModel(temp);
+        
+    }else{
+        cout<<"Could not load MXO Eprf: "<<path<<endl;
+    }
+    
+}
+
+void Loader::AddMxoIprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation){
+
+    MxoIprf iprf(path);
+    if(iprf.Parse()){
+        
+        IndexedModel* temp = iprf.getModel();
+        temp->setScale(scale);
+        temp->setRotation(rotation);
+        temp->setTranslation(translation);
+        
+        for(int i = 0; i< temp->getModelMeshCount();i++){
+            temp->setTexture(i,glb->textMan->getTexture(textureIndex));
+        }
+
+        scene->pushModel(temp);
+        
+    }else{
+        cout<<"Could not load MXO Iprf: "<<path<<endl;
+    }
+    
+}
+
 
 Loader::~Loader(){
 

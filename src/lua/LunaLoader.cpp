@@ -12,6 +12,8 @@ Luna<LunaLoader>::RegType LunaLoader::methods[] = {
    method(LunaLoader, AddPrimitive),
    method(LunaLoader, AddMxoMga),
    method(LunaLoader, AddMxoProp),
+   method(LunaLoader, AddMxoEprf),
+   method(LunaLoader, AddMxoIprf),
    {0,0}
 };
 
@@ -101,6 +103,79 @@ int LunaLoader::AddMxoProp(lua_State* L){
     string path =  luaL_optstring(L,1,0);
       
     loader->AddMxoProp(path,tindex, glm::vec3(sx,sy,sz), glm::vec3(rx,ry,rz), glm::vec3(tx,ty,tz));
+    return 0;
+}
+
+
+int LunaLoader::AddMxoEprf(lua_State* L){
+
+    // Scale
+    lua_rawgeti(L, 3, 1);
+    float sx = stack.PopFloat(L);
+    lua_rawgeti(L, 3, 2);
+    float sy = stack.PopFloat(L);
+    lua_rawgeti(L, 3, 3);
+    float sz = stack.PopFloat(L);
+    
+    // Rotation
+    lua_rawgeti(L, 4, 1);
+    float rx = stack.PopFloat(L);
+    lua_rawgeti(L, 4, 2);
+    float ry = stack.PopFloat(L);
+    lua_rawgeti(L, 4, 3);
+    float rz = stack.PopFloat(L);
+       
+    // Translation
+    lua_rawgeti(L, 5, 1);
+    float tx = stack.PopFloat(L);
+    lua_rawgeti(L, 5, 2);
+    float ty = stack.PopFloat(L);
+    lua_rawgeti(L, 5, 3);
+    float tz = stack.PopFloat(L);
+    
+    // Texture index
+    int tindex =  luaL_optinteger(L,2,0);
+    
+    // Path
+    string path =  luaL_optstring(L,1,0);
+      
+    loader->AddMxoEprf(path,tindex, glm::vec3(sx,sy,sz), glm::vec3(rx,ry,rz), glm::vec3(tx,ty,tz));
+    return 0;
+}
+
+int LunaLoader::AddMxoIprf(lua_State* L){
+
+    // Scale
+    lua_rawgeti(L, 3, 1);
+    float sx = stack.PopFloat(L);
+    lua_rawgeti(L, 3, 2);
+    float sy = stack.PopFloat(L);
+    lua_rawgeti(L, 3, 3);
+    float sz = stack.PopFloat(L);
+    
+    // Rotation
+    lua_rawgeti(L, 4, 1);
+    float rx = stack.PopFloat(L);
+    lua_rawgeti(L, 4, 2);
+    float ry = stack.PopFloat(L);
+    lua_rawgeti(L, 4, 3);
+    float rz = stack.PopFloat(L);
+       
+    // Translation
+    lua_rawgeti(L, 5, 1);
+    float tx = stack.PopFloat(L);
+    lua_rawgeti(L, 5, 2);
+    float ty = stack.PopFloat(L);
+    lua_rawgeti(L, 5, 3);
+    float tz = stack.PopFloat(L);
+    
+    // Texture index
+    int tindex =  luaL_optinteger(L,2,0);
+    
+    // Path
+    string path =  luaL_optstring(L,1,0);
+      
+    loader->AddMxoIprf(path,tindex, glm::vec3(sx,sy,sz), glm::vec3(rx,ry,rz), glm::vec3(tx,ty,tz));
     return 0;
 }
 

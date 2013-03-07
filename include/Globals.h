@@ -5,7 +5,6 @@
 #include <glincludes.h>
 #include <shader.h>
 #include <camera/Camera.h>
-#include <controls/Controls.h>
 #include <sound/soundManager.h>
 #include <TextureManager.h>
 
@@ -19,7 +18,6 @@ class Globals{
          int APPWIDTH;
          int APPHEIGHT;
 
-         Controls* controls;
          Camera* camera;
          Shader* solidShader;
          Shader* textureShader;

@@ -2,6 +2,7 @@
 #define INDEXEDMODEL_H
 
 #include <iostream>
+#include <vector>
 #include <algorithm>    // std::max
 #include <glincludes.h>
 #include <primitives/ModelVertex.h>

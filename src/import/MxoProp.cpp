@@ -6,7 +6,6 @@ MxoProp::MxoProp(string _path){
 
 MxoProp::~MxoProp(){
 
-
 }
 
 bool MxoProp::Parse(){
@@ -105,7 +104,6 @@ bool MxoProp::Parse(){
                 unsigned short index = bm.getInt16();
                  (model->getCurrentMesh())->addIndex(index);
             }
-
 
         }
 

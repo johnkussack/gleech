@@ -160,13 +160,15 @@ glm::mat4 IndexedModel::getModelMatrix(){
 void IndexedModel::recalculateModelMatrix(){
     glm::mat4 m(1.0f);
     //TODO: scale & rotation
+    m = glm::translate(m,translation);
+    
     m = glm::scale(m,scale);
     
-    m = glm::rotate(m, rotation.x , glm::vec3(1.f, 0.f, 0.f));
+    m = glm::rotate(m, rotation.x *-1.0f, glm::vec3(1.f, 0.f, 0.f));
     m = glm::rotate(m, rotation.y, glm::vec3(0.f, 1.f, 0.f));
     m = glm::rotate(m, rotation.z, glm::vec3(0.f, 0.f, 1.f));
         
-    m = glm::translate(m,translation);
+    
     modelMatrix = m;
 }
 

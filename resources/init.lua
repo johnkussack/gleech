@@ -45,8 +45,8 @@ print ("Initializing MXO Props")
 --lunaloader:AddMxoProp(base.."/church/chair/default/church_chair.prop",0,{1,1,1},{0,-90,0},{-4,0,7})
 --lunaloader:AddMxoProp(base.."/church/pew/default/pew_5m.prop",0,{1,1,1},{0,0,0},{0,0.25,7})
 
---base = "/media/B463-11BE/mxoNewStuff/mxo/Extracted/resource/prefab_database/building_shells/sl"
---lunaloader:AddMxoEprf(base.."/sl_church01/sl_church01.eprf",0,{1,1,1},{0,0,0},{0,0,0})
+base = "/media/B463-11BE/mxoNewStuff/mxo/Extracted/resource/prefab_database/building_shells/sl"
+lunaloader:AddMxoEprf(base.."/sl_church01/sl_church01.eprf",0,{1,1,1},{0,180,0},{0,0,-40})
 
 base = "/media/B463-11BE/mxoNewStuff/mxo/Extracted/resource/prefab_database/building_shells/metacortex"
 lunaloader:AddMxoEprf(base.."/meta_sky01_lvl1.eprf",1,{1,1,1},{0,0,0},{0,0,0})

@@ -27,7 +27,7 @@ bool MxoEprf::Parse(){
             
             string meshData = b.getBlob(meshLength);
             
-            if(meshLength>=0x100){
+            if(meshLength>=100){
                 model->addMesh();
                 bm.setData(meshData);
                 

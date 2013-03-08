@@ -6,7 +6,7 @@ Globals::Globals(){
     
     
     APPTITLE = "GLEECH V000000000.3";
-    GUITITLE = "DreamWorld";
+    GUITITLE = "Mxo Eprf_ ExteriorPreFabs";
     APPWIDTH = 1074;
     APPHEIGHT = 768;
     

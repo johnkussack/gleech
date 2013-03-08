@@ -98,26 +98,36 @@ void App::run(){
             }
             else{
                 //Key Events
+                
+                if(ev.type==ALLEGRO_EVENT_KEY_CHAR){
+                    if(gui->handleKeyEvent(&ev)){
+                        continue; // Event was handled by the gui
+                    }
+                }
+                
                 if(ev.type == ALLEGRO_EVENT_KEY_DOWN){ 
+                    if(gui->trappingKeys())
+                        continue;
                     controls->onKeyDown(ev.keyboard.keycode);
                 }
                 
                 if(ev.type == ALLEGRO_EVENT_KEY_UP){ 
+
+                    if(gui->trappingKeys())
+                        continue;
                     
-                    if(ev.keyboard.keycode == ALLEGRO_KEY_W){
-                        MODE3D = GL_LINE;
+                    switch(ev.keyboard.keycode){
+                        case ALLEGRO_KEY_W:
+                            MODE3D = GL_LINE;
+                            break;
+                        case ALLEGRO_KEY_S:
+                            MODE3D = GL_FILL;
+                            break;
+                        default:
+                            controls->onKeyUp(ev.keyboard.keycode);
+                            break;
                     }
-                    
-                    if(ev.keyboard.keycode == ALLEGRO_KEY_S){
-                        MODE3D = GL_FILL;
-                    }
-                    
-                    if(ev.keyboard.keycode == ALLEGRO_KEY_F12){
-                        //GET CODE FOR SCREENSHOT
-                    }
-                    else{
-                        controls->onKeyUp(ev.keyboard.keycode);
-                    }
+
                 }
                 
                 // Mouse Events

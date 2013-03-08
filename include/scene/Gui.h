@@ -16,6 +16,12 @@ class Gui {
         ALLEGRO_FONT *font;
         ALLEGRO_FONT *fontTitle;
         
+        bool chatting;
+        bool trapKeys;
+        
+        char chatBuffer[255];
+        int chatPointer;
+        
     public:
         Gui(Globals* _glb);
         virtual ~Gui();
@@ -23,6 +29,9 @@ class Gui {
         void init();
         
         void draw();
+        
+        bool handleKeyEvent(ALLEGRO_EVENT* ev);
+        bool trappingKeys();
     
 
 };

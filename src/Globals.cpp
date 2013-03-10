@@ -9,14 +9,14 @@ Globals::Globals(){
     GUITITLE = "Mxo Eprf_ ExteriorPreFabs";
     APPWIDTH = 1074;
     APPHEIGHT = 768;
-    
+
     camera = new Camera();
     camera->setResolution(APPWIDTH,APPHEIGHT);
-
+    
+    modelDb = new ModelDatabase();
+    
     textMan = new TextureManager();
     soundMan = new SoundManager();
-    
-    soundMan->open("/root/workspace/gleechA/resources/Mxos.ogg");
     
     
 }
@@ -25,6 +25,7 @@ Globals::~Globals(){
     deleteifnotnull(camera);
     deleteifnotnull(solidShader);
     deleteifnotnull(textureShader);
+    deleteifnotnull(modelDb);
     deleteifnotnull(textMan);
     deleteifnotnull(soundMan);
 }

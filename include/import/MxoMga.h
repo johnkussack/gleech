@@ -2,8 +2,7 @@
 #define MXOMGA_H
 
 #include <import/BinaryWalker.h>
-#include <import/IndexedModel.h>
-
+#include <primitives/IndexedModel.h>
 
 class MxoMga{
 

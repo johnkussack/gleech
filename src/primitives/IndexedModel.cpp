@@ -1,4 +1,4 @@
-#include <import/IndexedModel.h>
+#include <primitives/IndexedModel.h>
 
 /******************/
 /* MODEL MESH  */
@@ -126,50 +126,9 @@ void IndexedModel::setTexture(int _index, GLuint _texture){
     meshes[_index]->setTexture(_texture);
 }
 
-
 void IndexedModel::addMesh(){
     currMesh = new ModelMesh();
     meshes.push_back(currMesh);
-}
-
-void IndexedModel::setTranslation(glm::vec3 _translation){
-    translation.x = _translation.x;
-    translation.y = _translation.y;
-    translation.z = _translation.z;
-    recalculateModelMatrix();
-}
-
-void IndexedModel::setScale(glm::vec3 _scale){
-    scale.x = _scale.x;
-    scale.y = _scale.y;
-    scale.z = _scale.z;
-    recalculateModelMatrix();
-}
-
-void IndexedModel::setRotation(glm::vec3 _rotation){
-    rotation.x = _rotation.x;
-    rotation.y = _rotation.y;
-    rotation.z = _rotation.z;
-    recalculateModelMatrix();
-}
-
-glm::mat4 IndexedModel::getModelMatrix(){
-    return modelMatrix;
-}
-
-void IndexedModel::recalculateModelMatrix(){
-    glm::mat4 m(1.0f);
-    //TODO: scale & rotation
-    m = glm::translate(m,translation);
-    
-    m = glm::scale(m,scale);
-    
-    m = glm::rotate(m, rotation.x *-1.0f, glm::vec3(1.f, 0.f, 0.f));
-    m = glm::rotate(m, rotation.y, glm::vec3(0.f, 1.f, 0.f));
-    m = glm::rotate(m, rotation.z, glm::vec3(0.f, 0.f, 1.f));
-        
-    
-    modelMatrix = m;
 }
 
 void IndexedModel::initVao(){

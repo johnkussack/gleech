@@ -6,26 +6,16 @@
 #include <scene/Scene.h>
 #include <scene/SceneItem.h>
 
-#include <primitives/ModelVertex.h>
-#include <primitives/Primitive.h>
-#include <primitives/Triangle.h>
-#include <primitives/Plane.h>
-#include <primitives/Cube.h>
-#include <primitives/Skybox.h>
-
 #include <import/MxoProp.h>
 #include <import/MxoMga.h>
 #include <import/MxoEprf.h>
 #include <import/MxoIprf.h>
-#include <import/IndexedModel.h>
+#include <primitives/IndexedModel.h>
 
 class Loader{
 
     protected:
-        vector<Primitive*> primitiveStore;
-       
-        GLuint sceneVbo[3]; // Vertices, colors, normals?
-        GLuint sceneVboTextured[3]; // Vertices, UV, normals
+
         Globals* glb;
         Scene* scene;
                 
@@ -35,15 +25,18 @@ class Loader{
 
         virtual ~Loader();
 
-        void InitShaders(string vertexPath, string fragmentPath,string textureVertexPath, string textureFragmentPath);
-        void InitPrimitives();
-        void LoadTexture(string path, bool skybox);
-        void AddPrimitive(int index, int textureIndex,glm::vec3 scale, glm::vec3 translation);
-        void AddMxoMga(string path, int textureIndex, glm::vec3 translation);
-        void AddMxoProp(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
-        void AddMxoEprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
-        void AddMxoIprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void initShaders(string vertexPath, string fragmentPath,string textureVertexPath, string textureFragmentPath);
 
+        void loadTexture(string path, bool skybox);
+
+        int modelIndex(string path);
+        
+        void addMxoMga(string path, int textureIndex, glm::vec3 translation);
+        void addMxoProp(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void addMxoEprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+        void addMxoIprf(string path, int textureIndex, glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
+
+        void addItemToScene(SceneItem* item,int textureIndex,glm::vec3 scale,glm::vec3 rotation, glm::vec3 translation);
 
 };
 

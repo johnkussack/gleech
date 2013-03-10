@@ -2,7 +2,7 @@
 #define MXOPROP_H
 
 #include <import/BinaryWalker.h>
-#include <import/IndexedModel.h>
+#include <primitives/IndexedModel.h>
 #include <zlib.h>
 
 using namespace std;

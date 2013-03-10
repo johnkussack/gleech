@@ -21,9 +21,7 @@ class LunaLoader{
 
         // Interface for Loader methods
         int InitShaders(lua_State* L);
-        int InitPrimitives(lua_State* L);
         int LoadTexture(lua_State* L);
-        int AddPrimitive(lua_State* L);
         int AddMxoMga(lua_State* L);
         int AddMxoProp(lua_State* L);
         int AddMxoEprf(lua_State* L);

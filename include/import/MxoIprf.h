@@ -3,7 +3,7 @@
 #define	MXOIPRF_H
 
 #include <import/BinaryWalker.h>
-#include <import/IndexedModel.h>
+#include <primitives/IndexedModel.h>
 
 using namespace std;
 

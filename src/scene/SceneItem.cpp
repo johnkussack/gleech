@@ -1,56 +1,60 @@
 #include <scene/SceneItem.h>
 
 SceneItem::SceneItem(){
-    texture = 0;
-    scale[0] = 1; scale[1] = 1; scale[2] = 1;
-    rotation[0] = 0; rotation[1] = 0; rotation[2] = 0; rotation[3] = 1;
-    translation[0] = 0;translation[1] = 0;translation[2] = 0;
-    prim = 0;
-    ModelMatrix = glm::mat4(1.0f);
-
+    scale = glm::vec3(1.0f);
+    rotation = glm::vec3(0.0f);
+    translation = glm::vec3(0.0f);
+    modelMatrix = glm::mat4(1.0f);
 }
 
 SceneItem::~SceneItem(){
     //dtor
 }
 
-void SceneItem::SetPrimitive(Primitive* _prim){
-    prim = _prim;
+void SceneItem::setModel(IndexedModel* m){
+    model = m;
 }
 
-void SceneItem::SetScale(float a,float b, float c){
-    scale[0] = (GLfloat)a;
-    scale[1] = (GLfloat)b;
-    scale[2] = (GLfloat)c;
+IndexedModel* SceneItem::getModel(){
+    return model;
+}
+
+void SceneItem::setScale(glm::vec3 _scale){
+    scale.x = _scale.x;
+    scale.y = _scale.y;
+    scale.z = _scale.z;
     processModelMatrix();
 }
 
-void SceneItem::SetRotation(float a,float b, float c,float d){
-    rotation[0] = (GLfloat)a;
-    rotation[1] = (GLfloat)b;
-    rotation[2] = (GLfloat)c;
-    rotation[3] = (GLfloat)d;
+void SceneItem::setRotation(glm::vec3 _rotation){
+    rotation.x = _rotation.x;
+    rotation.y = _rotation.y;
+    rotation.z = _rotation.z;
     processModelMatrix();
 }
 
-void SceneItem::SetTranslation(float a,float b, float c){
-    translation[0] = (GLfloat)a;
-    translation[1] = (GLfloat)b;
-    translation[2] = (GLfloat)c;
+void SceneItem::setTranslation(glm::vec3 _translation){
+    translation.x = _translation.x;
+    translation.y = _translation.y;
+    translation.z = _translation.z;
     processModelMatrix();
-}
-
-void SceneItem::SetTexture(GLuint _texture){
-    texture = _texture;
 }
 
 void SceneItem::processModelMatrix(){
-    ModelMatrix = glm::mat4(1.0f);
-    ModelMatrix = glm::scale(ModelMatrix,glm::vec3(scale[0],scale[1],scale[2]));
-    // TODO: ROTATE
-    ModelMatrix = glm::translate(ModelMatrix,glm::vec3(translation[0],translation[1],translation[2]));
+    glm::mat4 m(1.0f);
+    
+    m = glm::translate(m,translation);
+    
+    m = glm::scale(m,scale);
+    
+    m = glm::rotate(m, rotation.x *-1.0f, glm::vec3(1.f, 0.f, 0.f));
+    m = glm::rotate(m, rotation.y, glm::vec3(0.f, 1.f, 0.f));
+    m = glm::rotate(m, rotation.z, glm::vec3(0.f, 0.f, 1.f));
+        
+    
+    modelMatrix = m;
 }
 
-glm::mat4 SceneItem::GetModelMatrix(){
-    return ModelMatrix;
+glm::mat4 SceneItem::getModelMatrix(){
+    return modelMatrix;
 }

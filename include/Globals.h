@@ -6,6 +6,7 @@
 #include <shader.h>
 #include <camera/Camera.h>
 #include <sound/soundManager.h>
+#include <primitives/ModelDatabase.h>
 #include <TextureManager.h>
 
 using namespace std;
@@ -23,6 +24,7 @@ class Globals{
          Shader* textureShader;
          TextureManager* textMan;
          SoundManager* soundMan;
+         ModelDatabase* modelDb;
 
          Globals();
          virtual ~Globals();

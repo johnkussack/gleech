@@ -2,19 +2,17 @@
 #define SCENEITEM_H
 
 #include <glincludes.h>
-#include <primitives/Primitive.h>
+#include <primitives/IndexedModel.h>
 
-class SceneItem
-{
+class SceneItem{
+    
     private:
-        Primitive* prim;
-        GLfloat scale[3];
-        GLfloat rotation[4];
-        GLfloat translation[3];
+        IndexedModel* model;
+        glm::vec3 scale;
+        glm::vec3 rotation;
+        glm::vec3 translation;
 
-        GLuint texture;
-
-        glm::mat4 ModelMatrix;
+        glm::mat4 modelMatrix;
 
         void processModelMatrix();
 
@@ -23,19 +21,15 @@ class SceneItem
         SceneItem();
         virtual ~SceneItem();
 
-        GLfloat getTranslation(int index){ return translation[index]; }
-        GLfloat getScale(int index){ return translation[index]; }
-        int getOffset() {return prim->sceneOffset; }
-        int getVerticesCount(){return prim->getVerticesCount();}
-        int getTexture() {return texture;}
+        
+        void setModel(IndexedModel* m);
+        IndexedModel* getModel();
+        void setScale(glm::vec3 _scale);
+        void setRotation(glm::vec3 _rotation);
+        void setTranslation(glm::vec3 _translation);
+        void setTexture(GLuint _texture);
 
-        void SetPrimitive(Primitive* _prim);
-        void SetScale(float a,float b, float c);
-        void SetRotation(float a,float b, float c,float d);
-        void SetTranslation(float a,float b, float c);
-        void SetTexture(GLuint _texture);
-
-        glm::mat4 GetModelMatrix();
+        glm::mat4 getModelMatrix();
 
 
 };

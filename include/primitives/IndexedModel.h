@@ -53,12 +53,7 @@ class IndexedModel{
         vector<ModelMesh*> meshes;
         ModelMesh* currMesh;
 
-        glm::vec3 scale;
-        glm::vec3 rotation;
-        glm::vec3 translation;
-
-        glm::mat4 modelMatrix;
-
+      
         void recalculateModelMatrix();
 
     public:
@@ -75,10 +70,6 @@ class IndexedModel{
 
         void setTexture(int meshIndex, GLuint _texture);
 
-        void setScale(glm::vec3 _scale);
-        void setRotation(glm::vec3 _rotation);
-        void setTranslation(glm::vec3 _translation);
-        glm::mat4 getModelMatrix();
 
 };
 

@@ -43,19 +43,14 @@ OBJECTFILES= \
 	${OBJECTDIR}/src/camera/Camera.o \
 	${OBJECTDIR}/src/controls/Controls.o \
 	${OBJECTDIR}/src/import/BinaryWalker.o \
-	${OBJECTDIR}/src/import/IndexedModel.o \
 	${OBJECTDIR}/src/import/MxoEprf.o \
 	${OBJECTDIR}/src/import/MxoIprf.o \
 	${OBJECTDIR}/src/import/MxoMga.o \
 	${OBJECTDIR}/src/import/MxoProp.o \
 	${OBJECTDIR}/src/lua/LunaLoader.o \
-	${OBJECTDIR}/src/primitives/Cube.o \
-	${OBJECTDIR}/src/primitives/Mesh.o \
+	${OBJECTDIR}/src/primitives/IndexedModel.o \
+	${OBJECTDIR}/src/primitives/ModelDatabase.o \
 	${OBJECTDIR}/src/primitives/ModelVertex.o \
-	${OBJECTDIR}/src/primitives/Plane.o \
-	${OBJECTDIR}/src/primitives/Primitive.o \
-	${OBJECTDIR}/src/primitives/Skybox.o \
-	${OBJECTDIR}/src/primitives/Triangle.o \
 	${OBJECTDIR}/src/scene/Gui.o \
 	${OBJECTDIR}/src/scene/Scene.o \
 	${OBJECTDIR}/src/scene/SceneItem.o \
@@ -127,11 +122,6 @@ ${OBJECTDIR}/src/import/BinaryWalker.o: src/import/BinaryWalker.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/import/BinaryWalker.o src/import/BinaryWalker.cpp
 
-${OBJECTDIR}/src/import/IndexedModel.o: src/import/IndexedModel.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/import
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/import/IndexedModel.o src/import/IndexedModel.cpp
-
 ${OBJECTDIR}/src/import/MxoEprf.o: src/import/MxoEprf.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/import
 	${RM} $@.d
@@ -157,40 +147,20 @@ ${OBJECTDIR}/src/lua/LunaLoader.o: src/lua/LunaLoader.cpp
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/lua/LunaLoader.o src/lua/LunaLoader.cpp
 
-${OBJECTDIR}/src/primitives/Cube.o: src/primitives/Cube.cpp 
+${OBJECTDIR}/src/primitives/IndexedModel.o: src/primitives/IndexedModel.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/primitives
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Cube.o src/primitives/Cube.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/IndexedModel.o src/primitives/IndexedModel.cpp
 
-${OBJECTDIR}/src/primitives/Mesh.o: src/primitives/Mesh.cpp 
+${OBJECTDIR}/src/primitives/ModelDatabase.o: src/primitives/ModelDatabase.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/primitives
 	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Mesh.o src/primitives/Mesh.cpp
+	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/ModelDatabase.o src/primitives/ModelDatabase.cpp
 
 ${OBJECTDIR}/src/primitives/ModelVertex.o: src/primitives/ModelVertex.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/primitives
 	${RM} $@.d
 	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/ModelVertex.o src/primitives/ModelVertex.cpp
-
-${OBJECTDIR}/src/primitives/Plane.o: src/primitives/Plane.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/primitives
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Plane.o src/primitives/Plane.cpp
-
-${OBJECTDIR}/src/primitives/Primitive.o: src/primitives/Primitive.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/primitives
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Primitive.o src/primitives/Primitive.cpp
-
-${OBJECTDIR}/src/primitives/Skybox.o: src/primitives/Skybox.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/primitives
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Skybox.o src/primitives/Skybox.cpp
-
-${OBJECTDIR}/src/primitives/Triangle.o: src/primitives/Triangle.cpp 
-	${MKDIR} -p ${OBJECTDIR}/src/primitives
-	${RM} $@.d
-	$(COMPILE.cc) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/src/primitives/Triangle.o src/primitives/Triangle.cpp
 
 ${OBJECTDIR}/src/scene/Gui.o: src/scene/Gui.cpp 
 	${MKDIR} -p ${OBJECTDIR}/src/scene

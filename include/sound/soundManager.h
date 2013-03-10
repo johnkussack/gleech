@@ -2,16 +2,23 @@
 #define SOUNDMANAGER__H
 
 #include <iostream>
-#include <stdlib.h>
-
-#include <SFML/Audio.hpp>
+#include <vector>
+#include <allegro5/allegro.h>
+#include <allegro5/allegro_audio.h>
+#include <allegro5/allegro_acodec.h>
 
 using namespace std;
 
 class SoundManager{
 
-    public:
+    
+    private:
 
+        vector<ALLEGRO_SAMPLE *> sounds;
+        unsigned int soundIndex;
+    
+    public:
+        
         SoundManager();
         virtual ~SoundManager();
 
@@ -20,9 +27,7 @@ class SoundManager{
         void stop();
         bool playing();
 
-    private:
-
-       sf::Music music;
+    
 
 
 };

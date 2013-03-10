@@ -13,7 +13,6 @@
         </logicalFolder>
         <logicalFolder name="import" displayName="import" projectFiles="true">
           <itemPath>include/import/BinaryWalker.h</itemPath>
-          <itemPath>include/import/IndexedModel.h</itemPath>
           <itemPath>include/import/MxoEprf.h</itemPath>
           <itemPath>include/import/MxoIprf.h</itemPath>
           <itemPath>include/import/MxoMga.h</itemPath>
@@ -25,13 +24,9 @@
           <itemPath>include/lua/luna.h</itemPath>
         </logicalFolder>
         <logicalFolder name="primitives" displayName="primitives" projectFiles="true">
-          <itemPath>include/primitives/Cube.h</itemPath>
-          <itemPath>include/primitives/Mesh.h</itemPath>
+          <itemPath>include/primitives/IndexedModel.h</itemPath>
+          <itemPath>include/primitives/ModelDatabase.h</itemPath>
           <itemPath>include/primitives/ModelVertex.h</itemPath>
-          <itemPath>include/primitives/Plane.h</itemPath>
-          <itemPath>include/primitives/Primitive.h</itemPath>
-          <itemPath>include/primitives/Skybox.h</itemPath>
-          <itemPath>include/primitives/Triangle.h</itemPath>
         </logicalFolder>
         <logicalFolder name="scene" displayName="scene" projectFiles="true">
           <itemPath>include/scene/Gui.h</itemPath>
@@ -83,7 +78,6 @@
         </logicalFolder>
         <logicalFolder name="import" displayName="import" projectFiles="true">
           <itemPath>src/import/BinaryWalker.cpp</itemPath>
-          <itemPath>src/import/IndexedModel.cpp</itemPath>
           <itemPath>src/import/MxoEprf.cpp</itemPath>
           <itemPath>src/import/MxoIprf.cpp</itemPath>
           <itemPath>src/import/MxoMga.cpp</itemPath>
@@ -93,13 +87,9 @@
           <itemPath>src/lua/LunaLoader.cpp</itemPath>
         </logicalFolder>
         <logicalFolder name="primitives" displayName="primitives" projectFiles="true">
-          <itemPath>src/primitives/Cube.cpp</itemPath>
-          <itemPath>src/primitives/Mesh.cpp</itemPath>
+          <itemPath>src/primitives/IndexedModel.cpp</itemPath>
+          <itemPath>src/primitives/ModelDatabase.cpp</itemPath>
           <itemPath>src/primitives/ModelVertex.cpp</itemPath>
-          <itemPath>src/primitives/Plane.cpp</itemPath>
-          <itemPath>src/primitives/Primitive.cpp</itemPath>
-          <itemPath>src/primitives/Skybox.cpp</itemPath>
-          <itemPath>src/primitives/Triangle.cpp</itemPath>
         </logicalFolder>
         <logicalFolder name="scene" displayName="scene" projectFiles="true">
           <itemPath>src/scene/Gui.cpp</itemPath>
@@ -148,7 +138,6 @@
         <linkerTool>
           <linkerLibItems>
             <linkerOptionItem>`pkg-config --libs glew`</linkerOptionItem>
-            <linkerOptionItem>`pkg-config --libs sfml-audio`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs gl`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs zlib`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs lua`</linkerOptionItem>
@@ -157,6 +146,8 @@
             <linkerOptionItem>`pkg-config --libs allegro_dialog-5`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs allegro_font-5`</linkerOptionItem>
             <linkerOptionItem>`pkg-config --libs allegro_ttf-5`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs allegro_audio-5`</linkerOptionItem>
+            <linkerOptionItem>`pkg-config --libs allegro_acodec-5`</linkerOptionItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -178,8 +169,6 @@
       </item>
       <item path="include/import/BinaryWalker.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/import/IndexedModel.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/import/MxoEprf.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/import/MxoIprf.h" ex="false" tool="3" flavor2="0">
@@ -194,19 +183,11 @@
       </item>
       <item path="include/lua/luna.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/primitives/Cube.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primitives/IndexedModel.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/primitives/Mesh.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primitives/ModelDatabase.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/primitives/ModelVertex.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Plane.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Primitive.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Skybox.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Triangle.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/scene/Gui.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -266,8 +247,6 @@
       </item>
       <item path="src/import/BinaryWalker.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/import/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/import/MxoEprf.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/import/MxoIprf.cpp" ex="false" tool="1" flavor2="0">
@@ -278,19 +257,11 @@
       </item>
       <item path="src/lua/LunaLoader.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/primitives/Cube.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/primitives/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/primitives/Mesh.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/primitives/ModelDatabase.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/primitives/ModelVertex.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Plane.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Skybox.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Triangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/scene/Gui.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -340,8 +311,6 @@
       </item>
       <item path="include/import/BinaryWalker.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/import/IndexedModel.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="include/import/MxoEprf.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/import/MxoIprf.h" ex="false" tool="3" flavor2="0">
@@ -356,19 +325,11 @@
       </item>
       <item path="include/lua/luna.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/primitives/Cube.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primitives/IndexedModel.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="include/primitives/Mesh.h" ex="false" tool="3" flavor2="0">
+      <item path="include/primitives/ModelDatabase.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/primitives/ModelVertex.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Plane.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Primitive.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Skybox.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="include/primitives/Triangle.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="include/scene/Gui.h" ex="false" tool="3" flavor2="0">
       </item>
@@ -428,8 +389,6 @@
       </item>
       <item path="src/import/BinaryWalker.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/import/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
       <item path="src/import/MxoEprf.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/import/MxoIprf.cpp" ex="false" tool="1" flavor2="0">
@@ -440,19 +399,11 @@
       </item>
       <item path="src/lua/LunaLoader.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/primitives/Cube.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/primitives/IndexedModel.cpp" ex="false" tool="1" flavor2="0">
       </item>
-      <item path="src/primitives/Mesh.cpp" ex="false" tool="1" flavor2="0">
+      <item path="src/primitives/ModelDatabase.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/primitives/ModelVertex.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Plane.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Primitive.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Skybox.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="src/primitives/Triangle.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="src/scene/Gui.cpp" ex="false" tool="1" flavor2="0">
       </item>

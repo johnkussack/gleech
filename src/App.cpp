@@ -45,6 +45,22 @@ bool App::init(){
         return false;
     }
     
+    
+    if(!al_install_audio()){
+        ERRMSG("Error during Init!", "Ooops", "Could not init audio!");
+        return false;
+    }
+
+    if(!al_init_acodec_addon()){
+        ERRMSG("Error during Init!", "Ooops", "Could not init audio codecs!");
+        return false;
+    }
+    
+    if (!al_reserve_samples(5)){
+        ERRMSG("Error during Init!", "Ooops", "Could not init audio samples!");
+        return false;
+    }
+    
     FPS = 60;
     timer = al_create_timer(1.0 / FPS);
     if(!timer){
@@ -83,7 +99,10 @@ void App::run(){
 
     al_start_timer(timer);
     ALLEGRO_EVENT ev;
- 
+
+    globals->soundMan->open("/root/workspace/gleechA/resources/Mxos.ogg");
+    globals->soundMan->play(); // In a loop
+    
     while(1){
    
         al_wait_for_event(event_queue, &ev);

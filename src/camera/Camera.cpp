@@ -2,10 +2,11 @@
 
 Camera::Camera(){
 
-    horizontalAngle = 3.14f;
+    //horizontalAngle = 3.14f;
+    horizontalAngle = 0.0f;
     verticalAngle = 0.0f;
 
-    position = glm::vec3( 0, 2, 5 );
+    position = glm::vec3( -160, 7, 50 );
 
     initialFoV = 45.0f;
 

@@ -19,11 +19,22 @@ bool MxoIprf::Parse(){
         
         bool parsing = true;
         
+        //LOCALS
+        float minX = 0;
+        float minZ = 0;
+        float maxX = 0;
+        float maxZ = 0;
+        float minY = 0;
+        float maxY = 0;
+        
         while (parsing){
-            
             
             int meshLength = b.getInt32();
             b.seek(4); // Ignore size
+            if (meshLength>0x3000000 || meshLength<0){
+                cout<<"WARNING!!!! IPRF LOADING OUT OF BOUNDS !! !"<<path<<endl;
+                break;
+            }
             
             string meshData = b.getBlob(meshLength);
             
@@ -62,6 +73,35 @@ bool MxoIprf::Parse(){
 
                     // ADD vertex to current mesh
                     (model->getCurrentMesh())->addVertex(vert);
+                    
+                    // Force bounding limit checks
+                    if (vert->coords.x>maxX){
+                        maxX = vert->coords.x;
+                    }
+
+                    if (vert->coords.z>maxZ){
+                        maxZ = vert->coords.z;
+                    }
+                    
+
+                    if (vert->coords.x<minX){
+                        minX = vert->coords.x;
+                    }
+
+                    if (vert->coords.z<minZ){
+                        minZ = vert->coords.z;
+                    }
+                    
+                    // Y axis
+                    if (vert->coords.y<minY){
+                        minY = vert->coords.y;
+                    }
+
+                    if (vert->coords.y>maxY){
+                        maxY = vert->coords.y;
+                    }
+                    
+                    
                 }
                 
                 for(unsigned int i = 0;i<triangleCount;i++){
@@ -83,6 +123,20 @@ bool MxoIprf::Parse(){
         // INIT THE MODEL
         model->initVao();
 
+        // Parse the boundaries (not zero centering check in)
+        
+        float limitZ = abs(round(minZ));
+        float limitX = abs(round(maxX));
+        
+        if (limitZ == 0 && limitX==0){
+            glm::vec3 center(-(minX-maxX)/2,(maxY-minY)/2,-(maxZ-minZ)/2);
+            model->setCenter(center);
+            model->setZeroCentered(false);
+            //cout<<"MXO EPRF DEBUG: "<<minX<<" "<<limitZ<<" "<<limitX<<" "<<maxZ<<" "<<((limitZ==0 && limitX==0)?"YES":"NO")<<endl;
+            cout<<"MXO EPRF: Adjunsting center, EPRF is not zero centered, is zero origin"<<endl;
+                
+        }
+        
         return true;
     }else{
         cout<<"[ERROR] Could not load MXO Prop: "<<path<<endl;

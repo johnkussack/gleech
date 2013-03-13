@@ -14,6 +14,7 @@ class Gui {
         bool enabled;
         stringstream buffer;
         ALLEGRO_FONT *font;
+        ALLEGRO_FONT *fontChat;
         ALLEGRO_FONT *fontTitle;
         
         bool chatting;

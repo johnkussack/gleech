@@ -17,7 +17,7 @@ Scene::~Scene(){
 
 void Scene::pushItem(SceneItem* _item){
     items.push_back(_item);
-    cout<<"[Scene] Added new model (ptr "<<_item->getModel()<<") Meshes inside: " <<_item->getModel()->getModelMeshCount()<<endl;
+    //cout<<"[Scene] Added new model (ptr "<<_item->getModel()<<") Meshes inside: " <<_item->getModel()->getModelMeshCount()<<endl;
 }
 
 
@@ -80,10 +80,5 @@ void Scene::render(){
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
-
-    // Play a sond if all is muted (or previous one ended)
-   /* if (!glb->soundMan->playing()){
-        glb->soundMan->play();
-    }*/
 
 }

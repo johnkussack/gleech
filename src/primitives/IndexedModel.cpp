@@ -21,7 +21,7 @@ ModelMesh::~ModelMesh() {
     vertices.clear();
 }
 
-vector<GLuint>* ModelMesh::getIndices() { return &indices; }
+vector<unsigned int>* ModelMesh::getIndices() { return &indices; }
 vector<ModelVertex*>* ModelMesh::getVertices(){return &vertices; }
 
 GLuint ModelMesh::getElementBuffer(){ return elementBuffer;}
@@ -99,6 +99,8 @@ void ModelMesh::initVao(){
 
 
 IndexedModel::IndexedModel(){
+    zeroCenter = true;
+    center = glm::vec3(0.0f);
 }
 
 IndexedModel::~IndexedModel(){
@@ -137,6 +139,20 @@ void IndexedModel::initVao(){
         ModelMesh* m = meshes.at(i);
         m->initVao();
     }
+}
 
+bool IndexedModel::zeroCentered(){
+    return zeroCenter;
+}
 
+glm::vec3 IndexedModel::getCenter(){
+    return center;
+}
+
+void IndexedModel::setZeroCentered(bool _zeroc){
+    zeroCenter = _zeroc;
+}
+        
+void IndexedModel::setCenter(glm::vec3 _center){
+    center = _center;
 }

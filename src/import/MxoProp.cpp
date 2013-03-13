@@ -34,6 +34,13 @@ bool MxoProp::Parse(){
 
 
         model = new IndexedModel();
+        
+        //LOCALS
+        float minX = 0;
+        float minZ = 0;
+        float maxX = 0;
+        float maxZ = 0;
+        
 
         unsigned int meshCount = b.getInt32();
 
@@ -98,6 +105,25 @@ bool MxoProp::Parse(){
                 // ADD vertex to current mesh
                 (model->getCurrentMesh())->addVertex(vert);
 
+                
+                // Force bounding limit checks
+                if (vert->coords.x>maxX){
+                    maxX = vert->coords.x;
+                }
+                
+                if (vert->coords.z>maxZ){
+                    maxZ = vert->coords.z;
+                }
+                
+                if (vert->coords.x<minX){
+                    minX = vert->coords.x;
+                }
+                
+                if (vert->coords.z<minZ){
+                    minZ = vert->coords.z;
+                }
+   
+                
             }
 
             while(bm.getOffset()!=meshChunkLength+4){
@@ -110,6 +136,8 @@ bool MxoProp::Parse(){
         // INIT THE MODEL
         model->initVao();
 
+        cout<<"MXO PROP DEBUG: "<<minX<<" "<<minZ<<" "<<maxX<<" "<<maxZ<<" "<<endl;
+        
         return true;
     }else{
         cout<<"[ERROR] Could not load MXO Prop: "<<path<<endl;

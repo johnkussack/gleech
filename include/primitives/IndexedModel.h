@@ -16,8 +16,10 @@ class ModelMesh{
         GLuint modelVbo[3];
         GLuint texture;
 
-        vector<GLuint> indices;
+        vector<unsigned int> indices;
         vector<ModelVertex*> vertices; // Interleaved
+        
+        
 
     public:
 
@@ -25,7 +27,7 @@ class ModelMesh{
 
         virtual ~ModelMesh();
 
-        vector<GLuint>* getIndices();
+        vector<unsigned int>* getIndices();
         vector<ModelVertex*>* getVertices();
 
         // VBOS & ElementBuffer
@@ -43,6 +45,7 @@ class ModelMesh{
         void addIndex(unsigned int _index);
 
         void initVao();
+  
 
 };
 
@@ -53,6 +56,9 @@ class IndexedModel{
         vector<ModelMesh*> meshes;
         ModelMesh* currMesh;
 
+        bool zeroCenter; // Center of the whole object is in absolute Zero
+        glm::vec3 center;
+        
       
         void recalculateModelMatrix();
 
@@ -70,7 +76,11 @@ class IndexedModel{
 
         void setTexture(int meshIndex, GLuint _texture);
 
-
+        bool zeroCentered();
+        void setZeroCentered(bool _zeroc);
+        
+        glm::vec3 getCenter(); 
+        void setCenter(glm::vec3 _center);
 };
 
 #endif // INDEXEDMODEL_H

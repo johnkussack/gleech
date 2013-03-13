@@ -23,7 +23,7 @@ int ModelDatabase::isKnownModel(string _path){
 
 int ModelDatabase::addModel(IndexedModel* _model, string _path){
     
-    if (!isKnownModel(_path)){
+    if (isKnownModel(_path)==-1){
         int ci = models.size();
         models.push_back(_model);
         modelReferences[_path] = ci;

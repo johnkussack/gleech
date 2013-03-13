@@ -41,18 +41,27 @@ void SceneItem::setTranslation(glm::vec3 _translation){
 }
 
 void SceneItem::processModelMatrix(){
+    
+    glm::mat4 trans = glm::translate(glm::mat4(1.0f), translation);
+    glm::mat4 transC = glm::translate(glm::mat4(1.0f), model->getCenter());
     glm::mat4 m(1.0f);
     
-    m = glm::translate(m,translation);
-    
-    m = glm::scale(m,scale);
-    
-    m = glm::rotate(m, rotation.x *-1.0f, glm::vec3(1.f, 0.f, 0.f));
-    m = glm::rotate(m, rotation.y, glm::vec3(0.f, 1.f, 0.f));
+    m = glm::rotate(m, rotation.x , glm::vec3(1.f, 0.f, 0.f));
+    m = glm::rotate(m, rotation.y, glm::vec3(0, 1, 0));
     m = glm::rotate(m, rotation.z, glm::vec3(0.f, 0.f, 1.f));
-        
     
-    modelMatrix = m;
+   if(!model->zeroCentered()){
+        if(rotation.y!=0 || rotation.z!=0 || rotation.x!=0){
+            m = m*transC;
+            cout<<"Displacing MODEL not zerocentered"<<endl;
+            trans = glm::translate(trans,-model->getCenter());
+        }
+    }
+    
+    glm::mat4 final = trans*m;
+    
+    modelMatrix = final;
+
 }
 
 glm::mat4 SceneItem::getModelMatrix(){

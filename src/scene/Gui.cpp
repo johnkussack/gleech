@@ -19,6 +19,7 @@ Gui::~Gui() {
 
 void Gui::init(){
     font = al_load_ttf_font("/root/workspace/gleechA/resources/MonospaceTypewriter.ttf",20,0 );
+    fontChat = al_load_ttf_font("/root/workspace/gleechA/resources/MonospaceTypewriter.ttf",10,0 );
     fontTitle = al_load_ttf_font("/root/workspace/gleechA/resources/Control Freak.ttf",60,0 );
 
     if (!font || !fontTitle){
@@ -33,7 +34,7 @@ void Gui::draw(){
     }
      
     al_draw_text(fontTitle, al_map_rgb(125,255,125), 0, 10,ALLEGRO_ALIGN_LEFT, globals->GUITITLE.c_str());
-    al_draw_text(font, al_map_rgb(125,255,125),0, (globals->APPHEIGHT-30),ALLEGRO_ALIGN_LEFT, (const char*)chatBuffer);
+    al_draw_text(fontChat, al_map_rgb(125,255,125),0, (globals->APPHEIGHT-30),ALLEGRO_ALIGN_LEFT, (const char*)chatBuffer);
 
     glm::vec3 pos = globals->camera->getPosition();
     
